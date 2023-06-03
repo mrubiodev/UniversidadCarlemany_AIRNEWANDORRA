@@ -6,7 +6,6 @@
 package com.airnewandorra.airnewandorra.models;
 
 import java.util.Date;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -23,10 +22,10 @@ public class Pasajero {
     private String correo;
     private String provincia;
     private String pais;
-    private String contacto;
+    private String contactoDeEmergencia;
     private Date fechaNacimiento;
     
-    public Pasajero(String nombreApellido, String dni, String pasaporte, String telefono, String correo, String provincia, String pais, String contacto, Date fechaNacimiento) {
+    public Pasajero(String nombreApellido, String dni, String pasaporte, String telefono, String correo, String provincia, String pais, String contactoDeEmergencia, Date fechaNacimiento) {
         this.ID = count.incrementAndGet();
         this.nombreApellido = nombreApellido;
         this.dni = dni;
@@ -35,7 +34,7 @@ public class Pasajero {
         this.correo = correo;
         this.provincia = provincia;
         this.pais = pais;
-        this.contacto = contacto;
+        this.contactoDeEmergencia = contactoDeEmergencia;
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -99,12 +98,12 @@ public class Pasajero {
         this.pais = pais;
     }
 
-    public String getContacto() {
-        return contacto;
+    public String getContactoDeEmergencia() {
+        return contactoDeEmergencia;
     }
 
-    public void setContacto(String contacto) {
-        this.contacto = contacto;
+    public void setContactoDeEmergencia(String contactoDeEmergencia) {
+        this.contactoDeEmergencia = contactoDeEmergencia;
     }
 
     public Date getFechaNacimiento() {

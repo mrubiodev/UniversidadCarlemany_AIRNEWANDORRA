@@ -18,8 +18,8 @@ public class Pasajero_Vuelo {
     private Vuelo    vuelo;
     private Pasajero pasajero;
     private ClaseVuelo clase;
-    private String fechaReserva;
-    private String horaReserva;
+    private final String fechaReserva;
+    private final String horaReserva;
     private boolean equipajeMano;
     private boolean equipajeBodega;
     private boolean mascota;

@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Destino {
     private static final AtomicInteger count = new AtomicInteger(0); 
-    int id;
+    private final int id;
     String nombreDestino;
 
     public Destino(String nombreDestino) {

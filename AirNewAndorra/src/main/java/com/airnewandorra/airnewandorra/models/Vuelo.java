@@ -5,7 +5,6 @@
  */
 package com.airnewandorra.airnewandorra.models;
 
-import java.util.List;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,7 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Vuelo {
     private static final AtomicInteger count = new AtomicInteger(0); 
-    private int id;
+    private final int id;
     private String aeropuertoOrigen;
     private String aeropuertoDestino;
     private String tipoVuelo;
