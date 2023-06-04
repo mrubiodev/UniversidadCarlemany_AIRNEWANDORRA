@@ -1,10 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.airnewandorra.airnewandorra.models;
 
-import java.text.SimpleDateFormat;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Date;
 import java.text.SimpleDateFormat;
