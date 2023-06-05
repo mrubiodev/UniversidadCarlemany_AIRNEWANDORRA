@@ -1,4 +1,4 @@
-package com.airnewandorra.airnewandorra.models;
+package com.airnewandorra.models;
 
 import java.util.Objects;
 
