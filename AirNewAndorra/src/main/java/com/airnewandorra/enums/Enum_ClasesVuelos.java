@@ -5,7 +5,7 @@ package com.airnewandorra.enums;
  */
 public enum Enum_ClasesVuelos {
   ECONOMIC("Economic"),
-  BUSSNESS("Bussness"),
+  BUSINESS("Business"),
   FIRST("First");
 
   private final String clase;
