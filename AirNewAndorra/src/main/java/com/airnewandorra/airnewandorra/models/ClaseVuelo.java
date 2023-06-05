@@ -12,7 +12,7 @@ public class ClaseVuelo {
     private final int id;
     private String nombre;
     
-    public ClaseVuelo(String nombre, float precio,float precioCancelacion) {
+    public ClaseVuelo(String nombre) {
         this.id = count.incrementAndGet();
         this.nombre = nombre;
 
