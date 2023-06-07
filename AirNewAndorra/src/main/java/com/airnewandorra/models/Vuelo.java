@@ -11,23 +11,26 @@ public class Vuelo {
   private final int id;
   private Origen aeropuertoOrigen;
   private Destino aeropuertoDestino;
-  private String tipoVuelo;
+  private String horaSalida;
+  private String horaLlegada;
+  private double duracion; //minutos
   private Date fechaVuelo;
+  private TipoAvion tipoAvion;
   private int numMaxPasajeros;
-  private Date horaLlegada;
-  private Date horaSalida;
-  private ClaseVuelo clase;
+  private int numMinPasajeros;
 
-  public Vuelo(Origen aeropuertoOrigen, Destino aeropuertoDestino, String tipoVuelo, Date fechaVuelo, int numMaxPasajeros, Date horaLlegada, Date horaSalida, ClaseVuelo clase) {
+
+ public Vuelo(Origen aeropuertoOrigen, Destino aeropuertoDestino, String horaSalida, String horaLlegada, double duracion, Date fechaVuelo, TipoAvion tipoAvion, int numMaxPasajeros, int numMinPasajeros) {
     this.id = count.incrementAndGet();
     this.aeropuertoOrigen = aeropuertoOrigen;
     this.aeropuertoDestino = aeropuertoDestino;
-    this.tipoVuelo = tipoVuelo;
-    this.fechaVuelo = fechaVuelo;
-    this.numMaxPasajeros = numMaxPasajeros;
-    this.horaLlegada = horaLlegada;
     this.horaSalida = horaSalida;
-    this.clase = clase;
+    this.horaLlegada = horaLlegada;
+    this.duracion = duracion;
+    this.fechaVuelo = fechaVuelo;
+    this.tipoAvion = tipoAvion;
+    this.numMaxPasajeros = numMaxPasajeros;
+    this.numMinPasajeros = numMinPasajeros;
   }
 
   public int getId() {
@@ -50,12 +53,28 @@ public class Vuelo {
     this.aeropuertoDestino = aeropuertoDestino;
   }
 
-  public String getTipoVuelo() {
-    return tipoVuelo;
+  public String getHoraSalida() {
+    return horaSalida;
   }
 
-  public void setTipoVuelo(String tipoVuelo) {
-    this.tipoVuelo = tipoVuelo;
+  public void setHoraSalida(String horaSalida) {
+    this.horaSalida = horaSalida;
+  }
+
+  public String getHoraLlegada() {
+    return horaLlegada;
+  }
+
+  public void setHoraLlegada(String horaLlegada) {
+    this.horaLlegada = horaLlegada;
+  }
+
+  public double getDuracion() {
+    return duracion;
+  }
+
+  public void setDuracion(double duracion) {
+    this.duracion = duracion;
   }
 
   public Date getFechaVuelo() {
@@ -66,6 +85,14 @@ public class Vuelo {
     this.fechaVuelo = fechaVuelo;
   }
 
+  public TipoAvion getTipoAvion() {
+    return this.tipoAvion;
+  }
+
+  public void setTipoAvion(TipoAvion tipoAvion) {
+    this.tipoAvion = tipoAvion;
+  }
+
   public int getNumMaxPasajeros() {
     return numMaxPasajeros;
   }
@@ -74,29 +101,11 @@ public class Vuelo {
     this.numMaxPasajeros = numMaxPasajeros;
   }
 
-  public Date getHoraLlegada() {
-    return horaLlegada;
+  public int getNumMinPasajeros() {
+    return numMinPasajeros;
   }
 
-  public void setHoraLlegada(Date horaLlegada) {
-    this.horaLlegada = horaLlegada;
+  public void setNumMinPasajeros(int numMinPasajeros) {
+    this.numMinPasajeros = numMinPasajeros;
   }
-
-  public Date getHoraSalida() {
-    return horaSalida;
-  }
-
-  public void setHoraSalida(Date horaSalida) {
-    this.horaSalida = horaSalida;
-  }
-
-  public ClaseVuelo getClase() {
-    return clase;
-  }
-
-  public void setClase(ClaseVuelo clase) {
-    this.clase = clase;
-  }
-
-
 }
