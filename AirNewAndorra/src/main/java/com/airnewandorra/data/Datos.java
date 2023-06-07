@@ -5,17 +5,15 @@
 package com.airnewandorra.data;
 
 import com.airnewandorra.enums.Enum_ClasesVuelos;
-import com.airnewandorra.models.ClaseVuelo;
-import com.airnewandorra.models.Destino;
-import com.airnewandorra.models.Pasajero;
-import com.airnewandorra.models.Pasajero_Vuelo;
-import com.airnewandorra.models.Vuelo;
-import com.airnewandorra.models.Vuelo_Clase;
+import com.airnewandorra.models.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Esta clase crea los datos iniciales de la aplicación.
+ *
  * @author minak
  */
 public class Datos {
@@ -23,6 +21,7 @@ public class Datos {
   private List<Pasajero> listaPasajeros = new ArrayList<>();
   private List<ClaseVuelo> listaClases = new ArrayList<>();
   private List<Destino> listaDestinos = new ArrayList<>();
+  private List<Origen> listaOrigenes = new ArrayList<>();
   private List<Vuelo_Clase> listaClasesVuelo = new ArrayList<>();
   private List<Vuelo> listaVuelos = new ArrayList<>();
   private List<Pasajero_Vuelo> listaPasajerosVuelo = new ArrayList<>();
@@ -30,6 +29,7 @@ public class Datos {
   public Datos() {
     crearClasesVuelos();
     crearDestinos();
+    crearOrigenes();
   }
 
   private void crearClasesVuelos() {
@@ -43,11 +43,23 @@ public class Datos {
   }
 
   private void crearDestinos() {
-    String[] destinos = {"Madrid", "Barcelona", "Bilbao", "Sevilla"};
-    for (String destino : destinos) {
-      Destino destinoObj = new Destino(destino);
-      listaDestinos.add(destinoObj);
-    }
+    Destino destino1 = new Destino("Madrid");
+    Destino destino2 = new Destino("Barcelona");
+    Destino destino3 = new Destino("Bilbao");
+    Destino destino4 = new Destino("Sevilla");
+
+    Destino[] destinos = {destino1, destino2, destino3, destino4};
+    listaDestinos.addAll(Arrays.asList(destinos));
+  }
+
+  private void crearOrigenes() {
+    Origen origen1 = new Origen("Andorra");
+    Origen origen2 = new Origen("Toulouse");
+    Origen origen3 = new Origen("Lleida");
+    Origen origen4 = new Origen("Barcelona");
+
+    Origen[] origenes = {origen1, origen2, origen3, origen4};
+    listaOrigenes.addAll(Arrays.asList(origenes));
   }
 
 }
