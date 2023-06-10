@@ -1,5 +1,5 @@
 
-package utils;
+package com.utils;
 /**
  * @author Mario Rubio Avila
  * @version 0.1

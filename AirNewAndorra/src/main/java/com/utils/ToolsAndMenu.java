@@ -1,4 +1,6 @@
-package utils;
+package com.utils;
+
+import com.utils.ColorConsole;
 
 import java.util.ArrayList;
 import java.util.Scanner;

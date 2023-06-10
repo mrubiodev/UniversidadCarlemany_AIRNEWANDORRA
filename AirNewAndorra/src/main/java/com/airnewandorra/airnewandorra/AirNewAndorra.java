@@ -1,29 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+
 
 package com.airnewandorra.airnewandorra;
 
-import utils.ToolsAndMenu;
-import static utils.ToolsAndMenu.menu;
-import static utils.ToolsAndMenu.title;
+import com.utils.ToolsAndMenu;
+import static com.utils.ToolsAndMenu.menu;
+import static com.utils.ToolsAndMenu.title;
 
-
-/**
- *
- * @author minak
- */
+import com.airnewandorra.data.Datos;
 public class AirNewAndorra {
-    
+
     public static Datos datosPrograma;
     
     static void menuPrincipal(){
-
         datosPrograma = new Datos();
-
-        title ("AirNewAndorra");
         String[] menuOpciones = {"1.Cliente", "2.Gestor", "0.Salir"};
         while (true){  //Bucle infinito
+            title ("AirNewAndorra");
             int option = menu(menuOpciones);
             switch (option){
                 case 0://SALIDA APP
@@ -53,9 +45,8 @@ public class AirNewAndorra {
     static void menuGestor(){
         String[] titulos = {"AirNewAndorra", "2.Gestor"};
         String[] menuOpciones = {"1.Vuelos", "2.Clases", "3.Destinos", "4.Clases Vuelos", "0.Volver"};
-        title (titulos);
-
         while (true){  //Bucle infinito
+            title (titulos);
             int option = menu(menuOpciones);
             switch (option){
                 case 0://SALIDA APP
@@ -64,7 +55,7 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                     //break;
                 case 1:
-                    menuVuelos();
+                    //menuVuelos();
                     ToolsAndMenu.pausa();
                     break;
                 case 2:                
@@ -76,7 +67,7 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 4:                
-                    menuClasesDeVuelos();
+                    //menuClasesDeVuelos();
                     ToolsAndMenu.pausa();
                     break;
             }
@@ -86,8 +77,8 @@ public class AirNewAndorra {
     static void menuClases(){
         String[] titulos = {"AirNewAndorra", "2.Gestor", "2.Clases"};
         String[] menuOpciones = {"1.Mostrar Clases", "0.Volver"};
-        title (titulos);
         while (true){  //Bucle infinito
+            title (titulos);
             int option = menu(menuOpciones);
             switch (option){
                 case 0://SALIDA APP
@@ -96,7 +87,7 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                     //break;
                 case 1:
-                    datosPrograma.MostrarClases();
+                    //datosPrograma.MostrarClases();
                     ToolsAndMenu.pausa();
                     break;
             }
@@ -106,8 +97,8 @@ public class AirNewAndorra {
     static void menuDestinos(){
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Destinos"};
         String[] menuOpciones = {"1.Mostrar Clases", "0.Volver"};
-        title (titulos);
         while (true){  //Bucle infinito
+            title (titulos);
             int option = menu(menuOpciones);
             switch (option){
                 case 0://SALIDA APP
@@ -116,7 +107,7 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                     //break;
                 case 1:
-                    datosPrograma.MostrarDestinos();
+                    //datosPrograma.MostrarDestinos();
                     ToolsAndMenu.pausa();
                     break;
             }
