@@ -9,17 +9,16 @@ import static com.libraryMenuTools.ToolsAndMenu.menu;
 import static com.libraryMenuTools.ToolsAndMenu.title;
 
 import com.airnewandorra.data.Datos;
+import java.util.List;
+import java.util.Scanner;
 public class AirNewAndorra {
-    private static boolean DEBUGMODE = true;
+
     public static Datos datosPrograma;
-    public static Pasajero funcionesPasajero;
     
     static void menuPrincipal(){
         datosPrograma = new Datos();
         String[] menuOpciones = {"1.Cliente", "2.Gestor", "0.Salir"};
-        if (DEBUGMODE) {
-            menuOpciones = new String[]{"1.Cliente", "2.Gestor", "3.Modo Demo", "0.Salir"};
-        }
+  
         while (true){  //Bucle infinito
             title ("AirNewAndorra");
             int option = menu(menuOpciones);
@@ -47,7 +46,7 @@ public class AirNewAndorra {
     
     static void menuCliente(){
         String[] titulos = {"AirNewAndorra", "1.Cliente"};
-        String[] menuOpciones = {"1.Crear Pasajero", "2.Seleccionar Pasajero", "3.Modificar Pasajero por DNI", "0.Volver"};
+        String[] menuOpciones = {"1.Crear Pasajero","2.Modificar Pasajero por DNI", "0.Volver"};
         while (true){  //Bucle infinito
             title (titulos);
             int option = menu(menuOpciones);
@@ -58,83 +57,19 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                 //break;
                 case 1:
-                    Pasajero nuevoPasajero = Pasajero.createPasajero();
-                    datosPrograma.nuevoPasajero(nuevoPasajero);
+             
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
-                    selectPasajero();
+                    modificarPasajeros(datosPrograma.getListaPasajeros());
                     ToolsAndMenu.pausa();
                     break;
-                case 3:
-                    funcionesPasajero.modificarPasajeros(datosPrograma.getListaPasajeros());
-                    ToolsAndMenu.pausa();
-                    break;
+                
             }
         }
     }
 
-    static void selectPasajero() {
-        String[] titulos = { "AirNewAndorra", "1. Cliente", "2. Gestion Pasajero" };
-        String[] listaStrPasajeros = datosPrograma.getlistaPasajeros();
-        String[] listaStrPasajerosActualizada = new String[listaStrPasajeros.length + 1];
-        System.arraycopy(listaStrPasajeros, 0, listaStrPasajerosActualizada, 0, listaStrPasajeros.length);
-        listaStrPasajerosActualizada[listaStrPasajeros.length] = "0 - Volver";
-        while (true) {
-            title(titulos);
-            int option = menu(listaStrPasajerosActualizada);
-            if (option >= 0 && option <= listaStrPasajerosActualizada.length - 1) {
-                switch (option) {
-                    case 0:
-                        System.out.println("Volviendo al menú principal");
-                        return;
-                    default:
-                        Pasajero pasajeroSeleccionado = datosPrograma.returnPasajeroObjById(option);
-                        menuPasajeroSeleccionado(pasajeroSeleccionado);
-                        // Haz algo con el pasajero seleccionado
-                        break;
-                }
-            } else {
-                System.out.println("Selección incorrecta. Por favor, elige una opción válida.");
-            }
-        }
-    }
-
-    static void menuPasajeroSeleccionado(Pasajero pasajeroSeleccionado) {
-        String[] titulos = {"AirNewAndorra", "1.Cliente","3." + pasajeroSeleccionado.getNombreApellido()};
-        String[] menuOpciones = {"1.Mostrar datos Pasajero","2.Modificar Pasajero", "3.Crear Reserva", "0.Volver"};
-        while (true){  //Bucle infinito
-            title (titulos);
-            int option = menu(menuOpciones);
-            switch (option){
-                case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
-                    return;//Me voy de la funcion
-                //break;
-                case 1:
-                    datosPrograma.mostrarDatosPasajeroByObj(pasajeroSeleccionado);
-                    ToolsAndMenu.pausa();
-                    break;
-                case 2:
-                    Pasajero pasajeroModificado = pasajeroSeleccionado.ModificarPasajero(pasajeroSeleccionado);
-                    if (ToolsAndMenu.getYESorNOTFromKB("modificar el pasajero")) {
-                        datosPrograma.modificarPasajerosByObj(pasajeroModificado);
-                    }
-                    else{
-                        System.out.println("El pasajero "+ pasajeroSeleccionado.getNombreApellido() + " NO fue modificado.");
-                    }
-                    ToolsAndMenu.pausa();
-                    break;
-                case 3:
-                    //FALTA POR IMPLANTAR
-                    ToolsAndMenu.pausa();
-                    break;
-            }
-        }
-    }
-
-    static void menuGestor(){
+     static void menuGestor(){
         String[] titulos = {"AirNewAndorra", "2.Gestor"};
         String[] menuOpciones = {"1.Vuelos", "2.Clases", "2.Origenes", "3.Destinos", "5.Clases Vuelos", "0.Volver"};
         while (true){  //Bucle infinito
@@ -321,7 +256,124 @@ public class AirNewAndorra {
             }
         }
     }
-        public static void main (String[]args){
-            menuPrincipal();
+    
+    static void modificarPasajeros(List<Pasajero> listaPasajeros) {
+        
+        List<Pasajero> mostrarListaPasajeros = datosPrograma.getListaPasajeros();
+        for (Pasajero pasajero : mostrarListaPasajeros) {
+            System.out.println(pasajero.getDni());
+        }
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el número de DNI del pasajero que desea modificar: ");
+        String dni = scanner.nextLine();
+        boolean encontrado = false;
+
+        for (Pasajero pasajero : listaPasajeros) {
+          if (pasajero.getDni().equals(dni)) {
+            encontrado = true;
+
+            scanner = new Scanner(System.in);
+            int opcion;
+
+            do {
+
+              System.out.println("Datos actuales del pasajero:");
+              System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
+              System.out.println("2 DNI: " + pasajero.getDni());
+              System.out.println("3 Pasaporte: " + pasajero.getPasaporte());
+              System.out.println("4 Fecha de nacimiento: " + pasajero.getFechaNacimiento());
+              System.out.println("5 Teléfono: " + pasajero.getTelefono());
+              System.out.println("6 Email: " + pasajero.getCorreo());
+              System.out.println("7 Provincia: " + pasajero.getProvincia());
+              System.out.println("8 País: " + pasajero.getPais());
+              System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
+              System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia());
+              System.out.print("Ingrese una opción: ");
+
+              opcion = scanner.nextInt();
+
+              switch (opcion) {
+                case 1:
+                  System.out.print("Ingrese el nuevo nombre y apellidos del pasajero: ");
+                  String nuevoNombre = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setNombreApellido(nuevoNombre);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 2:
+                  System.out.print("Ingrese el nuevo DNI del pasajero: ");
+                  String nuevoDNI = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setDni(nuevoDNI);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 3:
+                  System.out.print("Ingrese el nuevo pasaporte del pasajero: ");
+                  String nuevoPasaporte = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setPasaporte(nuevoPasaporte);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 4:
+                  System.out.print("Ingrese la nueva fecha de nacimiento del pasajero: ");
+                  String nuevaFechaNacimiento = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setFechaNacimiento(nuevaFechaNacimiento);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 5:
+                  System.out.print("Ingrese el nuevo teléfono del pasajero: ");
+                  String nuevoTelefono = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setTelefono(nuevoTelefono);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 6:
+                  System.out.print("Ingrese el nuevo correo: ");
+                  String nuevoCorreo = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setCorreo(nuevoCorreo);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 7:
+                  System.out.print("Ingrese la nueva provincia del pasajero: ");
+                  String nuevaProvincia = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setProvincia(nuevaProvincia);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 8:
+                  System.out.print("Ingrese el nuevo pais: ");
+                  String nuevoPais = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setPais(nuevoPais);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 9:
+                  System.out.print("Ingrese el nuevo pais: ");
+                  String nuevoContactoDeEmergencia = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setContactoDeEmergencia(nuevoContactoDeEmergencia);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 10:
+                  System.out.print("Ha seleccionado 'Salir' ");
+                  break;
+
+                default:
+                  System.out.print("Opción no válida. Inténtelo de nuevo");
+
+              }
+            } while (opcion != 10);
+
+            scanner.close();
+          }
         }
     }
+
+    
+    public static void main (String[]args){
+        menuPrincipal();
+    }
+    
+}
