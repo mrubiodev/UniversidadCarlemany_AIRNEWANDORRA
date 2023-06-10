@@ -116,8 +116,11 @@ public class AirNewAndorra {
                     break;
                 case 2:
                     Pasajero pasajeroModificado = pasajeroSeleccionado.ModificarPasajero(pasajeroSeleccionado);
-                    if (ToolsAndMenu.getYESorNOTFromKB("modificar el pasajero"){
+                    if (ToolsAndMenu.getYESorNOTFromKB("modificar el pasajero")) {
                         datosPrograma.modificarPasajerosByObj(pasajeroModificado);
+                    }
+                    else{
+                        System.out.println("El pasajero "+ pasajeroSeleccionado.getNombreApellido() + " NO fue modificado.");
                     }
 
                     ToolsAndMenu.pausa();
