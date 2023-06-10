@@ -53,7 +53,7 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
-                    selectPasajero());
+                    selectPasajero();
                     ToolsAndMenu.pausa();
                     break;
                 case 3:
