@@ -309,6 +309,7 @@ public class Datos {
    * @return
    */
   public Vuelo returnVueloObjById(int option) {
+    return null;
   }
 
   /**
@@ -317,5 +318,6 @@ public class Datos {
    * @return
    */
   public String[] getlistaVuelos() {
+    return null;
   }
 }
