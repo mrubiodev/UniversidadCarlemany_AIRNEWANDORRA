@@ -22,6 +22,7 @@ public class Datos {
     private List<Destino> listaDestinos = new ArrayList<>();
     private List<Origen> listaOrigenes = new ArrayList<>();
     private List<Vuelo> listaVuelos = new ArrayList<>();
+    private List<Reserva> listaReservas = new ArrayList<>();
 
     public Datos() {
         crearClasesVuelos();
@@ -408,10 +409,9 @@ public class Datos {
         boolean datosIncorrectos = false;
 
         do {
-            // Recopilar información del pasajero
-            System.out.println("1. ID de reserva: ");
-            int id = Integer.parseInt(sc.nextLine());
-            reserva.setId(id);
+            // Recopilar información de la reserva
+            int lastId = listaPasajeros.get(listaPasajeros.size()-1).getID();
+            reserva.setId(lastId+1);
 
             System.out.println("2. Datos del vuelo: ");
             // Aquí deberías tener la lógica para recopilar los datos del vuelo
