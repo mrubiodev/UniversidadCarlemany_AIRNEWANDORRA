@@ -65,7 +65,7 @@ public class AirNewAndorra {
     }
     
     static void submenuCliente() {
-        String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Crear Reserva", "3.Ver lista de Pasajeros"};
+        String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Ver lista de Pasajeros"};
         String[] menuOpciones = {"1.Modificar Pasajero por DNI", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver"};
         while (true) {  //Bucle infinito
             title(titulos);
@@ -80,11 +80,15 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
-                    datosPrograma.mostrarPasajeros(datosPrograma.getListaPasajeros());
+                    datosPrograma.crearReserva();
                     ToolsAndMenu.pausa();
                     break;
                 case 3:
-                    datosPrograma.modificarPasajeros(datosPrograma.getListaPasajeros());
+                    // VER LISTA RESERVA
+                    ToolsAndMenu.pausa();
+                    break;
+                case 4:
+                    // MODIFICAR RESERVA
                     ToolsAndMenu.pausa();
                     break;
             }

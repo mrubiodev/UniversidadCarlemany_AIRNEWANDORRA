@@ -4,8 +4,7 @@
  */
 package com.airnewandorra.data;
 
-import com.airnewandorra.enums.Clases;
-import com.airnewandorra.enums.TipoAvion;
+import com.airnewandorra.enums.*;
 import com.airnewandorra.models.*;
 import com.airnewandorra.utils.Utils;
 
@@ -408,4 +407,83 @@ public class Datos {
         return listaVuelos;
     }
 
+    public void crearReserva() {
+        Reserva reserva = new Reserva();
+        boolean datosIncorrectos = false;
+
+        do {
+            // Recopilar información del pasajero
+            System.out.println("1. ID de reserva: ");
+            int id = Integer.parseInt(sc.nextLine());
+            reserva.setId(id);
+
+            System.out.println("2. Datos del vuelo: ");
+            // Aquí deberías tener la lógica para recopilar los datos del vuelo
+
+            System.out.println("3. Clase de vuelo: ");
+            // Aquí deberías tener la lógica para recopilar la clase de vuelo
+
+            System.out.println("4. Nombre y apellidos del pasajero: ");
+            String nombreApellidos = sc.nextLine();
+            Pasajero pasajero = new Pasajero();
+            pasajero.setNombreApellido(nombreApellidos);
+            reserva.setPasajero(pasajero);
+
+            System.out.println("5. Fecha de reserva: ");
+            String fechaReserva = sc.nextLine();
+            reserva.setFechaReserva(fechaReserva);
+
+            System.out.println("6. Datos del equipaje: ");
+            // Aquí deberías tener la lógica para recopilar los datos del equipaje
+
+            System.out.println("7. ¿Lleva mascota? (true/false): ");
+            boolean mascota = Boolean.parseBoolean(sc.nextLine());
+            reserva.setMascota(mascota);
+
+            System.out.println("8. Estado de la reserva (confirmado/cancelado): ");
+            String estadoReservaStr = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
+            Estado estadoReserva;
+
+            // Validar la opción ingresada y asignar el estado correspondiente
+            if (estadoReservaStr.equals("CONFIRMADO")) {
+                estadoReserva = Estado.CONFIRMADO;
+            } else if (estadoReservaStr.equals("CANCELADO")) {
+                estadoReserva = Estado.CANCELADO;
+            } else {
+                System.out.println("La opción ingresada no es válida. Se asignará el estado 'CONFIRMADO' por defecto.");
+                estadoReserva = Estado.CONFIRMADO;
+            }
+
+            reserva.setEstado(estadoReserva);
+
+            // Validar la información recopilada
+            if (!Utils.isEmail(pasajero.getCorreo())) {
+                System.out.println("El correo electrónico ingresado no es válido.");
+                datosIncorrectos = true;
+            }
+
+            if (!Utils.isValidDNI(pasajero.getDni())) {
+                System.out.println("El DNI ingresado no es válido.");
+                datosIncorrectos = true;
+            }
+
+            if (!Utils.isNumeric(pasajero.getTelefono())) {
+                System.out.println("El teléfono ingresado no es válido.");
+                datosIncorrectos = true;
+            }
+
+            if (!Utils.isNumeric(pasajero.getContactoDeEmergencia())) {
+                System.out.println("El contacto de emergencia ingresado no es válido.");
+                datosIncorrectos = true;
+            }
+
+            if (datosIncorrectos) {
+                // Mostrar mensaje de datos incorrectos y repetir el bucle
+                System.out.println("Por favor, ingrese los datos nuevamente.");
+            } else {
+                System.out.println("Reserva creada correctamente.");
+            }
+
+        } while (datosIncorrectos);
+    }
 }
