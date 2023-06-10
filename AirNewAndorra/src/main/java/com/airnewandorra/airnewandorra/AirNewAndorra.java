@@ -93,7 +93,7 @@ public class AirNewAndorra {
 
     
     static void menuPasajeroSeleccionado(Pasajero pasajeroSeleccionado) {
-        String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Ver lista de Pasajeros"};
+        String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Seleccionar pasajero"};
         String[] menuOpciones = {"1.Modificar", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver"};
         while (true) {  //Bucle infinito
             title(titulos);

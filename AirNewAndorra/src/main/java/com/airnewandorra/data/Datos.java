@@ -85,8 +85,10 @@ public class Datos {
     }
 
     private void MostrarTiposAvion() {
+        int c = 0;
         for (TipoAvion tipo : TipoAvion.values()) {
-            System.out.println("\t" + tipo.name());
+            c++;
+            System.out.println("\t" + c +" - "+ tipo.name());
         }
     }
 
@@ -174,6 +176,8 @@ public class Datos {
             System.out.println("Aeropuesto de destino: ");
             int opcionDestino = sc.nextInt();
 
+            sc.nextLine(); //limpiamos
+            
             Destino destino = listaDestinos.get(opcionDestino - 1);
 
             System.out.println("Hora salida: ");
@@ -184,7 +188,10 @@ public class Datos {
 
             System.out.println("Duración: ");
             double duracion = sc.nextDouble();
-
+            
+            sc.nextLine(); //limpiamos
+            
+            
             System.out.println("Fecha del vuelo (dd/MM/yyyy): ");
             String fechaVuelo = sc.nextLine();
 
@@ -226,6 +233,8 @@ public class Datos {
                 datosIncorrectos = false;  // Todos los datos son válidos, salimos del bucle
             }
 
+            System.out.println("Vuelo creado correctamente.");
+            listaVuelos.add(vuelo);
         } while (datosIncorrectos);
     }
 
