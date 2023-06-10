@@ -320,4 +320,11 @@ public class Datos {
   public String[] getlistaVuelos() {
     return null;
   }
+
+  /**
+   * Este metodo recibe un objeto vuelo que tiene que ser borrado de la lista.
+   * @param vueloSeleccionado
+   */
+  public void BorrarVuelo(Vuelo vueloSeleccionado) {
+  }
 }

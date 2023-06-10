@@ -123,7 +123,6 @@ public class AirNewAndorra {
                     else{
                         System.out.println("El pasajero "+ pasajeroSeleccionado.getNombreApellido() + " NO fue modificado.");
                     }
-
                     ToolsAndMenu.pausa();
                     break;
                 case 3:
@@ -244,9 +243,15 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 3:
-                    //datosPrograma.MostrarClases();
-                    ToolsAndMenu.pausa();
-                    break;
+                    if (ToolsAndMenu.getYESorNOTFromKB("borrar el vuelo")) {
+                        datosPrograma.BorrarVuelo(vueloSeleccionado);
+                        ToolsAndMenu.pausa();
+                        return;
+                    }else{
+                        System.out.println("El vuelo "+ vueloSeleccionado.getId() + " - "+ vueloSeleccionado.getAeropuertoOrigen() + " -> "+ vueloSeleccionado.getAeropuertoDestino() +" NO fue borrado.");
+                        break;
+                    }
+
                 case 4:
                     datosPrograma.mostarListaPasajerosVuelo(vueloSeleccionado);
                     ToolsAndMenu.pausa();
