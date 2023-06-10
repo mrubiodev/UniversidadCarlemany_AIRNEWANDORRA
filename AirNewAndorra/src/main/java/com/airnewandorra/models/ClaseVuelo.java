@@ -2,20 +2,19 @@ package com.airnewandorra.models;
 
 import com.airnewandorra.enums.Clases;
 
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author minak
  */
 public class ClaseVuelo {
   private final int id;
-  private Clases nombre;
+  private String nombre;
   private double precio;
   private double precioCancelacion;
 
-  public ClaseVuelo(int id, Clases nombre, double precio, double precioCancelacion) {
+  public ClaseVuelo(int id, Clases clase, double precio, double precioCancelacion) {
     this.id = id;
-    this.nombre = nombre;
+    this.nombre = clase.name();
     this.precio = precio;
     this.precioCancelacion = precioCancelacion;
   }
@@ -24,12 +23,12 @@ public class ClaseVuelo {
     return id;
   }
 
-  public Clases getNombre() {
+  public String getNombre() {
     return nombre;
   }
 
-  public void setNombre(Clases nombre) {
-    this.nombre = nombre;
+  public void setNombre(Clases clase) {
+    this.nombre = clase.name();
   }
 
   public double getPrecio() {

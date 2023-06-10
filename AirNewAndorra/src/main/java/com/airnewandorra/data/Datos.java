@@ -134,6 +134,10 @@ public class Datos {
         return listaPasajerosString;
     }
 
+    /**
+     * Muestra una lista de vuelos
+     * @param listaVuelos 
+     */
     public void MostrarVuelos(List<Vuelo> listaVuelos) {
         System.out.println("Datos actuales de los pasajeros:");
         for (Vuelo vuelo : listaVuelos) {
@@ -227,10 +231,10 @@ public class Datos {
         } while (datosIncorrectos);
     }
 
-    public List<Vuelo> getlistaVuelos() {
-        return listaVuelos;
-    }
-
+    /**
+     * Crea un nuevo pasajero
+     * @param listaPasajeros1 
+     */
     public void crearPasajero(List<Pasajero> listaPasajeros1) {
         Pasajero pasajero = new Pasajero();
         boolean datosIncorrectos = false;
@@ -269,6 +273,7 @@ public class Datos {
                 System.out.println("Pasajero creado correctamente.");
             }
 
+            listaPasajeros1.add(pasajero);
         } while (datosIncorrectos);
 
     }
@@ -397,6 +402,10 @@ public class Datos {
             System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia());
         }
 
+    }
+
+    public List<Vuelo> getlistaVuelos() {
+        return listaVuelos;
     }
 
 }
