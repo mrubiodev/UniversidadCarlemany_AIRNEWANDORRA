@@ -16,6 +16,8 @@ public class Reserva {
   private boolean mascota;
   private Estado estado; // Confirmado, cancelado
 
+  public Reserva(){}
+  
   public Reserva(int id, Vuelo vuelo, ClaseVuelo claseVuelo, Pasajero pasajero, String fechaReserva, Equipaje equipaje, boolean mascota, Estado estado) {
     this.id = id;
     this.vuelo = vuelo;
