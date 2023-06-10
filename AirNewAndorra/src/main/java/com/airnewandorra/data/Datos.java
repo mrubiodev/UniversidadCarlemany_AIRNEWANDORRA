@@ -137,7 +137,7 @@ public class Datos {
      * @param listaVuelos
      */
     public void MostrarVuelos(List<Vuelo> listaVuelos) {
-        System.out.println("Datos actuales de los pasajeros:");
+        System.out.println("Datos actuales de los vuelos:");
         for (Vuelo vuelo : listaVuelos) {
             System.out.println("ID: " + vuelo.getId());
             System.out.println("Aeropuerto de origen: " + vuelo.getAeropuertoOrigen());
