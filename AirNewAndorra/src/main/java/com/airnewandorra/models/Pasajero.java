@@ -1,13 +1,40 @@
 package com.airnewandorra.models;
 
+import com.utils.ToolsAndMenu;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- *
- * @author VM_Mainak
- */
+/** Esta clase representa un pasajero de un vuelo
+ *  @version 1.0
+ *  @since 1.0
+*/
 public class Pasajero {
+    /**
+     * Atributos de la clase Pasajero
+     *  @param ID
+     *      Identificador del pasajero
+     *  @param nombreApellido
+     *      Nombre y apellidos del pasajero
+     *  @param dni
+     *      DNI del pasajero
+     *  @param pasaporte
+     *      Pasaporte del pasajero
+     *  @param telefono
+     *      Telefono del pasajero
+     *  @param correo
+     *      Correo electronico del pasajero
+     *  @param provincia
+     *      Provincia del pasajero
+     *  @param pais
+     *      Pais del pasajero
+     *  @param contactoDeEmergencia
+     *    Contacto de emergencia del pasajero
+     *  @param fechaNacimiento
+     *    Fecha de nacimiento del pasajero
+     */
     private static final AtomicInteger count = new AtomicInteger(0); 
     private final int ID;
     private String nombreApellido;
@@ -32,6 +59,7 @@ public class Pasajero {
         this.contactoDeEmergencia = contactoDeEmergencia;
         this.fechaNacimiento = fechaNacimiento;
     }
+
 
     public int getID() {
         return ID;
@@ -109,4 +137,31 @@ public class Pasajero {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    /** Este metodo crea un pasajero a partir de los datos introducidos por el usuario
+        *  @return Pasajero
+        */
+
+    static public Pasajero createPasajero() {
+
+        String nombreApellido = ToolsAndMenu.getStringFromKB("nombre y apellidos");
+        String dni            = ToolsAndMenu.getStringFromKB("dni");
+        String pasaporte      = ToolsAndMenu.getStringFromKB("pasaporte");
+        String telefono       = ToolsAndMenu.getStringFromKB("teléfono");
+        String correo         = ToolsAndMenu.getStringFromKB("correo electronico");
+        String provincia      = ToolsAndMenu.getStringFromKB("provincia");
+        String pais           = ToolsAndMenu.getStringFromKB("pais");
+        String contactoDeEmergencia = ToolsAndMenu.getStringFromKB("contacto de emergencia");
+        String fechaNacimientoStr = ToolsAndMenu.getStringFromKB("fecha de nacimiento (en formato dd/mm/yyyy)");
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaNacimiento = null;
+        try {
+            fechaNacimiento = dateFormat.parse(fechaNacimientoStr);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        
+        Pasajero pasajero = new Pasajero(nombreApellido, dni, pasaporte, telefono, correo, provincia, pais, contactoDeEmergencia, fechaNacimiento);
+        return pasajero;
+    }
 }

@@ -62,9 +62,44 @@ public class Datos {
     listaOrigenes.addAll(Arrays.asList(origenes));
   }
 
+  /**
+   * Este método devuelve la lista de destinos en una array de String con formato "ID - Nombre del destino"
+   * 
+   */
   public void MostrarDestinos() {
   }
 
+  /**
+   * Este método devuelve la lista de destinos en una array de String con formato "ID - Nombre de la clase"
+   * 
+   */
   public void MostrarClases() {
+  }
+
+  /**
+   * Este método dado un nuevo pasajero y lo añade a la lista de pasajeros
+   * @param nuevoPasajero
+   */
+  public void nuevoPasajero(Pasajero nuevoPasajero) {
+  }
+
+  /**
+   * Este método devuelve la lista de pasajeros en una array de String con formato "ID - Nombre Apellido"
+   * @return
+   */
+  public String[] getlistaPasajeros() {
+    final String[] pasajerosEnSistema = { "1 - Pepe", "2 - Juan", "3 - Maria" };
+    return pasajerosEnSistema;
+  }
+
+  /**
+   * Este método devuelve un objeto de tipo Pasajero dado un ID
+   * @param id
+   * @return
+   */
+  public Pasajero returnPasajeroObjById(int id) {
+    
+      final Pasajero pasajeroByID = new Pasajero("Pedro Perez Salazar","12345678A","PAS23467hkj","695758586","lennycarl@gmail.com","Bizkaia", "España","68892346",null);
+      return pasajeroByID;
   }
 }
