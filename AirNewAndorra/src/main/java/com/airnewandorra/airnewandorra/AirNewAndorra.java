@@ -58,15 +58,43 @@ public class AirNewAndorra {
                     break;
                 case 3:
                     // SELECIONAR PASAJERO
+                    selectPasajero();
                     ToolsAndMenu.pausa();
                     break;
             }
         }
     }
     
-    static void submenuCliente() {
+    static void selectPasajero() {
+        String[] titulos = { "AirNewAndorra", "1. Cliente", "2. Seleccionar Pasajero" };
+        String[] listaStrPasajeros = datosPrograma.getlistaPasajeros();
+        String[] listaStrPasajerosActualizada = new String[listaStrPasajeros.length + 1];
+        System.arraycopy(listaStrPasajeros, 0, listaStrPasajerosActualizada, 0, listaStrPasajeros.length);
+        listaStrPasajerosActualizada[listaStrPasajeros.length] = "0 - Volver";
+        while (true) {
+            title(titulos);
+            int option = menu(listaStrPasajerosActualizada);
+            if (option >= 0 && option <= listaStrPasajerosActualizada.length - 1) {
+                switch (option) {
+                    case 0:
+                        System.out.println("Volviendo al menú principal");
+                        return;
+                    default:
+                        Pasajero pasajeroSeleccionado = datosPrograma.returnPasajeroObjById(option);
+                        menuPasajeroSeleccionado(pasajeroSeleccionado);
+                        // Haz algo con el pasajero seleccionado
+                        break;
+                }
+            } else {
+                System.out.println("Selección incorrecta. Por favor, elige una opción válida.");
+            }
+        }
+    }
+
+    
+    static void menuPasajeroSeleccionado(Pasajero pasajeroSeleccionado) {
         String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Ver lista de Pasajeros"};
-        String[] menuOpciones = {"1.Modificar Pasajero por DNI", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver"};
+        String[] menuOpciones = {"1.Modificar", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
@@ -76,15 +104,16 @@ public class AirNewAndorra {
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 case 1:
-                    datosPrograma.modificarPasajeros(datosPrograma.getListaPasajeros());
+                    datosPrograma.modificarPasajero(pasajeroSeleccionado);
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
-                    datosPrograma.crearReserva();
+                    datosPrograma.crearReserva(pasajeroSeleccionado);
                     ToolsAndMenu.pausa();
                     break;
                 case 3:
                     // VER LISTA RESERVA
+                    datosPrograma.listaReservasPasajero(pasajeroSeleccionado);
                     ToolsAndMenu.pausa();
                     break;
                 case 4:
