@@ -1,5 +1,6 @@
 package com.airnewandorra.models;
 
+import com.airnewandorra.enums.Clases;
 import com.airnewandorra.enums.Equipaje;
 import com.airnewandorra.enums.Estado;
 
@@ -9,7 +10,7 @@ import com.airnewandorra.enums.Estado;
 public class Reserva {
   private int id;
   private Vuelo vuelo;
-  private ClaseVuelo claseVuelo;
+  private Clases claseVuelo;
   private Pasajero pasajero;
   private String fechaReserva; //con hora dd/MM/yyyy HH:mm
   private Equipaje equipaje; // Mano, facturado, ambos
@@ -18,7 +19,7 @@ public class Reserva {
 
   public Reserva(){}
   
-  public Reserva(int id, Vuelo vuelo, ClaseVuelo claseVuelo, Pasajero pasajero, String fechaReserva, Equipaje equipaje, boolean mascota, Estado estado) {
+  public Reserva(int id, Vuelo vuelo, Clases claseVuelo, Pasajero pasajero, String fechaReserva, Equipaje equipaje, boolean mascota, Estado estado) {
     this.id = id;
     this.vuelo = vuelo;
     this.claseVuelo = claseVuelo;
@@ -45,11 +46,11 @@ public class Reserva {
     this.vuelo = vuelo;
   }
 
-  public ClaseVuelo getClaseVuelo() {
+  public Clases getClaseVuelo() {
     return claseVuelo;
   }
 
-  public void setClaseVuelo(ClaseVuelo claseVuelo) {
+  public void setClaseVuelo(Clases claseVuelo) {
     this.claseVuelo = claseVuelo;
   }
 
