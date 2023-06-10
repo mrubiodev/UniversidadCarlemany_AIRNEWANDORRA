@@ -12,6 +12,7 @@ import com.airnewandorra.data.Datos;
 public class AirNewAndorra {
     private static boolean DEBUGMODE = true;
     public static Datos datosPrograma;
+    public static Pasajero funcionesPasajero;
     
     static void menuPrincipal(){
         datosPrograma = new Datos();
@@ -66,7 +67,7 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 3:
-                    datosPrograma.modificarPasajeros(datosPrograma.getListaPasajeros());
+                    funcionesPasajero.modificarPasajeros(datosPrograma.getListaPasajeros());
                     ToolsAndMenu.pausa();
                     break;
             }

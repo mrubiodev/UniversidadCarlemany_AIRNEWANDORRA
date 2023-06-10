@@ -1,6 +1,8 @@
 package com.airnewandorra.models;
 
 import com.libraryMenuTools.ToolsAndMenu;
+import java.util.List;
+import java.util.Scanner;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -159,6 +161,115 @@ public class Pasajero {
         }
 
         return pasajero;
+    }
+    
+    public void modificarPasajeros(List<Pasajero> listaPasajeros) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el número de DNI del pasajero que desea modificar: ");
+        String dni = scanner.nextLine();
+        boolean encontrado = false;
+
+        for (Pasajero pasajero : listaPasajeros) {
+          if (pasajero.getDni().equals(dni)) {
+            encontrado = true;
+
+            scanner = new Scanner(System.in);
+            int opcion;
+
+            do {
+
+              System.out.println("Datos actuales del pasajero:");
+              System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
+              System.out.println("2 DNI: " + pasajero.getDni());
+              System.out.println("3 Pasaporte: " + pasajero.getPasaporte());
+              System.out.println("4 Fecha de nacimiento: " + pasajero.getFechaNacimiento());
+              System.out.println("5 Teléfono: " + pasajero.getTelefono());
+              System.out.println("6 Email: " + pasajero.getCorreo());
+              System.out.println("7 Provincia: " + pasajero.getProvincia());
+              System.out.println("8 País: " + pasajero.getPais());
+              System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
+              System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia());
+              System.out.print("Ingrese una opción: ");
+
+              opcion = scanner.nextInt();
+
+              switch (opcion) {
+                case 1:
+                  System.out.print("Ingrese el nuevo nombre y apellidos del pasajero: ");
+                  String nuevoNombre = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setNombreApellido(nuevoNombre);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 2:
+                  System.out.print("Ingrese el nuevo DNI del pasajero: ");
+                  String nuevoDNI = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setDni(nuevoDNI);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 3:
+                  System.out.print("Ingrese el nuevo pasaporte del pasajero: ");
+                  String nuevoPasaporte = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setPasaporte(nuevoPasaporte);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 4:
+                  System.out.print("Ingrese la nueva fecha de nacimiento del pasajero: ");
+                  String nuevaFechaNacimiento = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setFechaNacimiento(nuevaFechaNacimiento);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 5:
+                  System.out.print("Ingrese el nuevo teléfono del pasajero: ");
+                  String nuevoTelefono = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setTelefono(nuevoTelefono);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 6:
+                  System.out.print("Ingrese el nuevo correo: ");
+                  String nuevoCorreo = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setCorreo(nuevoCorreo);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 7:
+                  System.out.print("Ingrese la nueva provincia del pasajero: ");
+                  String nuevaProvincia = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setProvincia(nuevaProvincia);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 8:
+                  System.out.print("Ingrese el nuevo pais: ");
+                  String nuevoPais = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setPais(nuevoPais);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 9:
+                  System.out.print("Ingrese el nuevo pais: ");
+                  String nuevoContactoDeEmergencia = scanner.nextLine();
+                  scanner.nextLine(); // Limpia el buffer
+                  pasajero.setContactoDeEmergencia(nuevoContactoDeEmergencia);
+                  System.out.println("Datos del pasajero actualizados con éxito.");
+
+                case 10:
+                  System.out.print("Ha seleccionado 'Salir' ");
+                  break;
+
+                default:
+                  System.out.print("Opción no válida. Inténtelo de nuevo");
+
+              }
+            } while (opcion != 10);
+
+            scanner.close();
+          }
+        }
     }
 
     /** Este metodo crea un pasajero a partir de los datos introducidos por el usuario
