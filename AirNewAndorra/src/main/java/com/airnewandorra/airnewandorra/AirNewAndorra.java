@@ -376,10 +376,9 @@ public class AirNewAndorra {
     }
 
     private static void mostrarPasajeros(List<Pasajero> mostrarListaPasajeros) {
-
+        System.out.println("Datos actuales de los pasajeros:");
         for (Pasajero pasajero : mostrarListaPasajeros) {
 
-            System.out.println("Datos actuales del pasajero:");
             System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
             System.out.println("2 DNI: " + pasajero.getDni());
             System.out.println("3 Pasaporte: " + pasajero.getPasaporte());
