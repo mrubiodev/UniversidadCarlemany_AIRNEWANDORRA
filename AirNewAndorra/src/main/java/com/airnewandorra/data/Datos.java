@@ -23,7 +23,6 @@ public class Datos {
   private List<ClaseVuelo> listaClases = new ArrayList<>();
   private List<Destino> listaDestinos = new ArrayList<>();
   private List<Origen> listaOrigenes = new ArrayList<>();
-  private List<Vuelo_Clase> listaClasesVuelo = new ArrayList<>();
   private List<Vuelo> listaVuelos = new ArrayList<>();
 
 

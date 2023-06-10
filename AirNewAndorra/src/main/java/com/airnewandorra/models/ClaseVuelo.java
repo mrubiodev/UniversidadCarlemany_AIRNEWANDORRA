@@ -8,7 +8,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author minak
  */
 public class ClaseVuelo {
-  private static final AtomicInteger count = new AtomicInteger(0);
   private final int id;
   private Clases nombre;
   private double precio;
