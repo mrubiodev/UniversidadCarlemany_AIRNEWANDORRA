@@ -25,7 +25,7 @@ public class Datos {
   private List<Origen> listaOrigenes = new ArrayList<>();
   private List<Vuelo_Clase> listaClasesVuelo = new ArrayList<>();
   private List<Vuelo> listaVuelos = new ArrayList<>();
-  private List<Pasajero_Vuelo> listaPasajerosVuelo = new ArrayList<>();
+
 
   public Datos() {
     crearClasesVuelos();
@@ -38,13 +38,12 @@ public class Datos {
   }
 
   private void crearClasesVuelos() {
-    // Recorremos el enum de clases de vuelo
-    for (Enum_ClasesVuelos clase : Enum_ClasesVuelos.values()) {
-      // Creamos un objeto de la clase ClaseVuelo
-      ClaseVuelo claseVuelo = new ClaseVuelo(clase.getClase());
-      // Añadimos el objeto a la lista de clases de vuelo
-      listaClases.add(claseVuelo);
-    }
+    ClaseVuelo clase1 = new ClaseVuelo(1, Enum_ClasesVuelos.ECONOMIC, 100, 50);
+    ClaseVuelo clase2 = new ClaseVuelo(2, Enum_ClasesVuelos.BUSINESS, 200, 100);
+    ClaseVuelo clase3 = new ClaseVuelo(3, Enum_ClasesVuelos.FIRST, 300, 150);
+
+    ClaseVuelo[] clases = {clase1, clase2, clase3};
+    listaClases.addAll(Arrays.asList(clases));
   }
 
   private void crearDestinos() {
