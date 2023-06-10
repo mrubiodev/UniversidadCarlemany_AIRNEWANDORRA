@@ -116,55 +116,7 @@ public class Pasajero {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    
-    
-    
-    /** Dado un pasajero lo modifica si se cambia algo pero no lo rescribe en el objeto hasta que se valide
-     * @param pasajero
-     * @return
-     */
-    static public Pasajero ModificarPasajero(Pasajero pasajero) {
 
-        String nombreApellido = ToolsAndMenu.getStringFromKB("nuevo nombre y apellidos ("+pasajero.getNombreApellido()+")");
-        String dni            = ToolsAndMenu.getStringFromKB("nuevo dni ("+pasajero.getDni()+")");
-        String pasaporte      = ToolsAndMenu.getStringFromKB("nuevo pasaporte ("+pasajero.getPasaporte()+")");
-        String telefono       = ToolsAndMenu.getStringFromKB("nuevo teléfono ("+pasajero.getTelefono()+")");
-        String correo         = ToolsAndMenu.getStringFromKB("nuevo correo electronico ("+pasajero.getCorreo()+")");
-        String provincia      = ToolsAndMenu.getStringFromKB("nuevo provincia ("+pasajero.getProvincia()+")");
-        String pais           = ToolsAndMenu.getStringFromKB("nuevo pais ("+pasajero.getPais()+")");
-        String contactoDeEmergencia = ToolsAndMenu.getStringFromKB("nuevo contacto de emergencia ("+pasajero.getContactoDeEmergencia()+")");
-        String fechaNacimientoStr = ToolsAndMenu.getStringFromKB("nuevo fecha de nacimiento (en formato dd/mm/yyyy) ("+pasajero.getFechaNacimiento()+")");
-
-        if (!nombreApellido.isEmpty()) {
-            pasajero.setNombreApellido(nombreApellido);
-        }
-        if (!dni.isEmpty()) {
-            pasajero.setDni(dni);
-        }
-        if (!pasaporte.isEmpty()) {
-            pasajero.setPasaporte(pasaporte);
-        }
-        if (!telefono.isEmpty()) {
-            pasajero.setTelefono(telefono);
-        }
-        if (!correo.isEmpty()) {
-            pasajero.setCorreo(correo);
-        }
-        if (!provincia.isEmpty()) {
-            pasajero.setProvincia(provincia);
-        }
-        if (!pais.isEmpty()) {
-            pasajero.setPais(pais);
-        }
-        if (!contactoDeEmergencia.isEmpty()) {
-            pasajero.setContactoDeEmergencia(contactoDeEmergencia);
-        }
-        if (!fechaNacimientoStr.isEmpty()) {
-            pasajero.setFechaNacimiento(fechaNacimientoStr);
-        }
-
-        return pasajero;
-    }
     
     public void modificarPasajeros(List<Pasajero> listaPasajeros) {
         Scanner scanner = new Scanner(System.in);
