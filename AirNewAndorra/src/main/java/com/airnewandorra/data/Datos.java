@@ -244,6 +244,39 @@ public class Datos {
             String nombreApellidos = sc.nextLine();
             pasajero.setNombreApellido(nombreApellidos);
 
+            System.out.println("2. DNI: ");
+            String dni = sc.nextLine();
+            pasajero.setDni(dni);
+
+            System.out.println("3. Pasaporte: ");
+            String pasaporte = sc.nextLine();
+            pasajero.setPasaporte(pasaporte);
+
+            System.out.println("4. Teléfono: ");
+            String telefono = sc.nextLine();
+            pasajero.setTelefono(telefono);
+
+            System.out.println("5. Correo electrónico: ");
+            String correo = sc.nextLine();
+            pasajero.setCorreo(correo);
+
+            System.out.println("6. Provincia: ");
+            String provincia = sc.nextLine();
+            pasajero.setProvincia(provincia);
+
+            System.out.println("7. País: ");
+            String pais = sc.nextLine();
+            pasajero.setPais(pais);
+
+            System.out.println("8. Contacto de emergencia: ");
+            String contactoEmergencia = sc.nextLine();
+            pasajero.setContactoDeEmergencia(contactoEmergencia);
+
+            System.out.println("9. Fecha de nacimiento: ");
+            String fechaNacimiento = sc.nextLine();
+            pasajero.setFechaNacimiento(fechaNacimiento);
+
+
             // Validar la información recopilada
             if (!Utils.isEmail(pasajero.getCorreo())) {
                 System.out.println("El correo electrónico ingresado no es válido.");
@@ -503,7 +536,7 @@ public class Datos {
             System.out.println("Equipaje: " + reserva.getEquipaje().name());
             System.out.println("Estado: " + reserva.getEstado().name());
             System.out.println("Mascota: " + (reserva.isMascota() ? "Sí" : "No"));
-            System.out.println("Clase de reserva: " + reserva.getClaseVuelo().getNombre());
+            System.out.println("Clase de reserva: " + reserva.getClaseVuelo().getClase());
 
         }
     }
