@@ -415,6 +415,7 @@ public class Datos {
             System.out.println("7 Provincia: " + pasajero.getProvincia());
             System.out.println("8 País: " + pasajero.getPais());
             System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
+            System.out.println("\n");
         }
 
     }
