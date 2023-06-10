@@ -159,50 +159,43 @@ public class Datos {
 
     public void crearPasajero(List<Pasajero> listaPasajeros1) {
         Pasajero pasajero = new Pasajero();
-
+        boolean datosIncorrectos = false;
+        
         do {
+            // Recopilar información del pasajero
             System.out.println("1 Nombre y apellidos: ");
             String nombreApellidos = sc.nextLine();
             pasajero.setNombreApellido(nombreApellidos);
 
-            System.out.println("2 DNI: ");
-            String dni = sc.nextLine();
-            pasajero.setDni(dni);
+            // Validar la información recopilada
+            if (!Utils.isEmail(pasajero.getCorreo())) {
+                System.out.println("El correo electrónico ingresado no es válido.");
+                datosIncorrectos = true;
+            }
 
-            System.out.println("3 Pasaporte: ");
-            String pasaporte = sc.nextLine();
-            pasajero.setPasaporte(pasaporte);
+            if (!Utils.isValidDNI(pasajero.getDni())) {
+                System.out.println("El DNI ingresado no es válido.");
+                datosIncorrectos = true;
+            }
 
-            System.out.println("4 Fecha de nacimiento: ");
-            String fechaNacimiento = sc.nextLine();
-            pasajero.setFechaNacimiento(fechaNacimiento);
+            if (!Utils.isNumeric(pasajero.getTelefono())) {
+                System.out.println("El teléfono ingresado no es válido.");
+                datosIncorrectos = true;
+            }
 
-            System.out.println("5 Teléfono: ");
-            String telefono = sc.nextLine();
-            pasajero.setTelefono(telefono);
+            if (!Utils.isNumeric(pasajero.getContactoDeEmergencia())) {
+                System.out.println("El contacto de emergencia ingresado no es válido.");
+                datosIncorrectos = true;
+            }
 
-            System.out.println("6 Email: ");
-            String correo = sc.nextLine();
-            pasajero.setCorreo(correo);
+            if (datosIncorrectos) {
+                // Mostrar mensaje de datos incorrectos y repetir el bucle
+                System.out.println("Por favor, ingrese los datos nuevamente.");
+            } else {
+                System.out.println("Pasajero creado correctamente.");
+            }
 
-            System.out.println("7 Provincia: ");
-            String provincia = sc.nextLine();
-            pasajero.setProvincia(provincia);
-
-            System.out.println("8 País: ");
-            String pais = sc.nextLine();
-            pasajero.setPais(pais);
-
-            System.out.println("9 Contacto de emergencia: ");
-            String contactoEmergencia = sc.nextLine();
-            pasajero.setContactoDeEmergencia(contactoEmergencia);
-
-            System.out.println("Pasajero creado correctamente.");
-
-        } while (!Utils.isEmail(pasajero.getCorreo())
-                || !Utils.isValidDNI(pasajero.getDni())
-                || !Utils.isNumeric(pasajero.getTelefono())
-                || !Utils.isNumeric(pasajero.getContactoDeEmergencia()));
+        } while (datosIncorrectos);
 
     }
 
