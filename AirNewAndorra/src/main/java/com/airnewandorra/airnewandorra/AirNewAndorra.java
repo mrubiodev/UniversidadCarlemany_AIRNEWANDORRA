@@ -38,7 +38,6 @@ public class AirNewAndorra {
     static void menuCliente(){
         String[] titulos = {"AirNewAndorra", "1.Cliente"};
         String[] menuOpciones = {"1.Crear Pasajero", "2.Seleccionar Pasajero", "3.Modificar Pasajero por DNI", "0.Volver"};
-        title (titulos);
         while (true){  //Bucle infinito
             title (titulos);
             int option = menu(menuOpciones);
@@ -54,6 +53,10 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
+                    selectPasajero());
+                    ToolsAndMenu.pausa();
+                    break;
+                case 3:
                     datosPrograma.modificarPasajeros(datosPrograma.getListaPasajeros());
                     ToolsAndMenu.pausa();
                     break;
@@ -67,7 +70,6 @@ public class AirNewAndorra {
         String[] listaStrPasajerosActualizada = new String[listaStrPasajeros.length + 1];
         System.arraycopy(listaStrPasajeros, 0, listaStrPasajerosActualizada, 0, listaStrPasajeros.length);
         listaStrPasajerosActualizada[listaStrPasajeros.length] = "0 - Volver";
-        title(titulos);
         while (true) {
             title(titulos);
             int option = menu(listaStrPasajerosActualizada);
@@ -91,7 +93,6 @@ public class AirNewAndorra {
     static void menuPasajeroSeleccionado(Pasajero pasajeroSeleccionado) {
         String[] titulos = {"AirNewAndorra", "1.Cliente","3." + pasajeroSeleccionado.getNombreApellido()};
         String[] menuOpciones = {"1.Modificar Pasajero", "2.Crear Reserva", "0.Volver"};
-        title (titulos);
         while (true){  //Bucle infinito
             title (titulos);
             int option = menu(menuOpciones);
