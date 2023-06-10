@@ -1,7 +1,5 @@
 package com.airnewandorra.utils;
 
-import java.util.Calendar;
-
 public final class Utils {
 
   // comprobamos si el string es un número

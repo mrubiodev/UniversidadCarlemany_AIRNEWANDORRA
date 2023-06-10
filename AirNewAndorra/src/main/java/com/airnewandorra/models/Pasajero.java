@@ -6,15 +6,18 @@ import java.util.Scanner;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-/** Esta clase representa un pasajero de un vuelo
- *  @version 1.0
- *  @since 1.0
-*/
+/**
+ * Esta clase representa un pasajero de un vuelo
+ *
+ * @version 1.0
+ * @since 1.0
+ */
 public class Pasajero {
+
     /**
      * Atributos de la clase Pasajero
      */
-    private static final AtomicInteger count = new AtomicInteger(0); 
+    private static final AtomicInteger count = new AtomicInteger(0);
     private final int ID;
     private String nombreApellido;
     private String dni;
@@ -25,7 +28,11 @@ public class Pasajero {
     private String pais;
     private String contactoDeEmergencia;
     private String fechaNacimiento; // dd/MM/yyyy
-    
+
+    public Pasajero() {
+        this.ID = count.incrementAndGet();
+    }
+
     public Pasajero(String nombreApellido, String dni, String pasaporte, String telefono, String correo, String provincia, String pais, String contactoDeEmergencia, String fechaNacimiento) {
         this.ID = count.incrementAndGet();
         this.nombreApellido = nombreApellido;
@@ -38,7 +45,6 @@ public class Pasajero {
         this.contactoDeEmergencia = contactoDeEmergencia;
         this.fechaNacimiento = fechaNacimiento;
     }
-
 
     public int getID() {
         return ID;
@@ -116,20 +122,21 @@ public class Pasajero {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-
-    
-    /** Este metodo crea un pasajero a partir de los datos introducidos por el usuario
-        *  @return Pasajero
-        */
+    /**
+     * Este metodo crea un pasajero a partir de los datos introducidos por el
+     * usuario
+     *
+     * @return Pasajero
+     */
     static public Pasajero createPasajero() {
 
         String nombreApellido = ToolsAndMenu.getStringFromKB("nombre y apellidos");
-        String dni            = ToolsAndMenu.getStringFromKB("dni");
-        String pasaporte      = ToolsAndMenu.getStringFromKB("pasaporte");
-        String telefono       = ToolsAndMenu.getStringFromKB("teléfono");
-        String correo         = ToolsAndMenu.getStringFromKB("correo electronico");
-        String provincia      = ToolsAndMenu.getStringFromKB("provincia");
-        String pais           = ToolsAndMenu.getStringFromKB("pais");
+        String dni = ToolsAndMenu.getStringFromKB("dni");
+        String pasaporte = ToolsAndMenu.getStringFromKB("pasaporte");
+        String telefono = ToolsAndMenu.getStringFromKB("teléfono");
+        String correo = ToolsAndMenu.getStringFromKB("correo electronico");
+        String provincia = ToolsAndMenu.getStringFromKB("provincia");
+        String pais = ToolsAndMenu.getStringFromKB("pais");
         String contactoDeEmergencia = ToolsAndMenu.getStringFromKB("contacto de emergencia");
         String fechaNacimientoStr = ToolsAndMenu.getStringFromKB("fecha de nacimiento (en formato dd/mm/yyyy)");
 
@@ -140,7 +147,5 @@ public class Pasajero {
     public String toString() {
         return "Pasajero{" + "ID=" + ID + ", nombreApellido=" + nombreApellido + ", dni=" + dni + ", pasaporte=" + pasaporte + ", telefono=" + telefono + ", correo=" + correo + ", provincia=" + provincia + ", pais=" + pais + ", contactoDeEmergencia=" + contactoDeEmergencia + ", fechaNacimiento=" + fechaNacimiento + '}';
     }
-
-    
 
 }
