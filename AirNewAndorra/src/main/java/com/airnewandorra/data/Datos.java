@@ -4,7 +4,7 @@
  */
 package com.airnewandorra.data;
 
-import com.airnewandorra.enums.Enum_ClasesVuelos;
+import com.airnewandorra.enums.Clases;
 import com.airnewandorra.models.*;
 
 import java.util.ArrayList;
@@ -38,9 +38,9 @@ public class Datos {
   }
 
   private void crearClasesVuelos() {
-    ClaseVuelo clase1 = new ClaseVuelo(1, Enum_ClasesVuelos.ECONOMIC, 100, 50);
-    ClaseVuelo clase2 = new ClaseVuelo(2, Enum_ClasesVuelos.BUSINESS, 200, 100);
-    ClaseVuelo clase3 = new ClaseVuelo(3, Enum_ClasesVuelos.FIRST, 300, 150);
+    ClaseVuelo clase1 = new ClaseVuelo(1, Clases.ECONOMIC, 100, 50);
+    ClaseVuelo clase2 = new ClaseVuelo(2, Clases.BUSINESS, 200, 100);
+    ClaseVuelo clase3 = new ClaseVuelo(3, Clases.FIRST, 300, 150);
 
     ClaseVuelo[] clases = {clase1, clase2, clase3};
     listaClases.addAll(Arrays.asList(clases));
