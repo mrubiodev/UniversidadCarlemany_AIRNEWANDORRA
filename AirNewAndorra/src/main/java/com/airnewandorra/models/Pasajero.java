@@ -116,6 +116,9 @@ public class Pasajero {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    
+    
+    
     /** Dado un pasajero lo modifica si se cambia algo pero no lo rescribe en el objeto hasta que se valide
      * @param pasajero
      * @return
@@ -290,5 +293,11 @@ public class Pasajero {
         return new Pasajero(nombreApellido, dni, pasaporte, telefono, correo, provincia, pais, contactoDeEmergencia, fechaNacimientoStr);
     }
 
+    @Override
+    public String toString() {
+        return "Pasajero{" + "ID=" + ID + ", nombreApellido=" + nombreApellido + ", dni=" + dni + ", pasaporte=" + pasaporte + ", telefono=" + telefono + ", correo=" + correo + ", provincia=" + provincia + ", pais=" + pais + ", contactoDeEmergencia=" + contactoDeEmergencia + ", fechaNacimiento=" + fechaNacimiento + '}';
+    }
+
+    
 
 }
