@@ -74,6 +74,12 @@ public class Datos {
     }
   }
 
+  public void MostrarOrigenes() {
+    for (Origen origen : listaOrigenes) {
+      System.out.println(origen.getId() + " - " + origen.getNombreOrigen());
+    }
+  }
+
   /**
    * Este método devuelve la lista de clases en una array de String con formato "ID - Nombre de la clase"
    */
@@ -274,5 +280,42 @@ public class Datos {
    */
   public void modificarPasajerosByObj(Pasajero pasajeroModificador) {
 
+  }
+
+  /**
+   * Mostara todos los vuelos y sus datos mas relevantes
+   */
+  public void MostrarVuelos() {
+  }
+
+  /**
+   *  Este método dado un nuevo vuelo y lo añade a la lista de vuelos
+   * @param nuevoVuelo
+   */
+  public void nuevoVuelo(Vuelo nuevoVuelo) {
+  }
+
+
+  /**
+   * Imprime la lista de pasajeros de un vuelo en concreto
+   * @param vueloSeleccionado
+   */
+  public void mostarListaPasajerosVuelo(Vuelo vueloSeleccionado) {
+  }
+
+  /**
+   * * Este método devuelve un objeto de tipo Vuelo dado un ID
+   * @param option
+   * @return
+   */
+  public Vuelo returnVueloObjById(int option) {
+  }
+
+  /**
+   * Este método devuelve la lista de vuelos en una array de String con formato "ID - Origen -> Destino - fechaVuelo - horaSalida -> horaLlegada "
+   *
+   * @return
+   */
+  public String[] getlistaVuelos() {
   }
 }

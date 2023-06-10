@@ -3,6 +3,7 @@
 package com.airnewandorra.airnewandorra;
 
 import com.airnewandorra.models.Pasajero;
+import com.airnewandorra.models.Vuelo;
 import com.libraryMenuTools.ToolsAndMenu;
 import static com.libraryMenuTools.ToolsAndMenu.menu;
 import static com.libraryMenuTools.ToolsAndMenu.title;
@@ -135,7 +136,7 @@ public class AirNewAndorra {
 
     static void menuGestor(){
         String[] titulos = {"AirNewAndorra", "2.Gestor"};
-        String[] menuOpciones = {"1.Vuelos", "2.Clases", "3.Destinos", "4.Clases Vuelos", "0.Volver"};
+        String[] menuOpciones = {"1.Vuelos", "2.Clases", "2.Origenes", "3.Destinos", "5.Clases Vuelos", "0.Volver"};
         while (true){  //Bucle infinito
             title (titulos);
             int option = menu(menuOpciones);
@@ -146,21 +147,108 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                     //break;
                 case 1:
-                    //FALTA POR IMPLANTAR
-                    //menuVuelos();
+                    menuVuelos();
                     ToolsAndMenu.pausa();
                     break;
                 case 2:                
                     menuClases();
                     ToolsAndMenu.pausa();
                     break;
-                case 3:                
-                    menuDestinos();
+                case 3:
+                    menuOrigenes();
                     ToolsAndMenu.pausa();
                     break;
                 case 4:
+                    menuDestinos();
+                    ToolsAndMenu.pausa();
+                    break;
+                case 5:
                     //FALTA POR IMPLANTAR
                     //menuClasesDeVuelos();
+                    ToolsAndMenu.pausa();
+                    break;
+            }
+        }
+    }
+
+    private static void menuVuelos() {
+        String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Vuelos"};
+        String[] menuOpciones = {"1.Mostrar Vuelos", "2.Crear Vuelo", "3.Seleccionar Vuelo"};
+        while (true){  //Bucle infinito
+            title (titulos);
+            int option = menu(menuOpciones);
+            switch (option){
+                case 0://SALIDA APP
+                    System.out.println("Volviendo al menu principal");
+                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    return;//Me voy de la funcion
+                case 1:
+                    datosPrograma.MostrarVuelos();
+                    ToolsAndMenu.pausa();
+                    break;
+                case 2:
+                    Vuelo nuevoVuelo = Vuelo.createVuelo(null, null , null);
+                    datosPrograma.nuevoVuelo(nuevoVuelo);
+                    ToolsAndMenu.pausa();
+                    break;
+                case 3:
+                    seleccionarVuelos();
+                    ToolsAndMenu.pausa();
+                    break;
+            }
+        }
+    }
+    private static void seleccionarVuelos() {
+        String[] titulos = { "AirNewAndorra", "1. Gestion", "2. Gestion Vuelos" };
+        String[] listaStrVuelos = datosPrograma.getlistaVuelos();
+        String[] listaStrVuelosActualizada = new String[listaStrVuelos.length + 1];
+        System.arraycopy(listaStrVuelos, 0, listaStrVuelosActualizada, 0, listaStrVuelos.length);
+        listaStrVuelosActualizada[listaStrVuelos.length] = "0 - Volver";
+        while (true) {
+            title(titulos);
+            int option = menu(listaStrVuelosActualizada);
+            if (option >= 0 && option <= listaStrVuelosActualizada.length - 1) {
+                switch (option) {
+                    case 0:
+                        System.out.println("Volviendo al menú principal");
+                        return;
+                    default:
+                        Vuelo vuelosSeleccionado = datosPrograma.returnVueloObjById(option);
+                        menuVuelosSeleccionado(vuelosSeleccionado);
+                        // Haz algo con el pasajero seleccionado
+                        break;
+                }
+            } else {
+                System.out.println("Selección incorrecta. Por favor, elige una opción válida.");
+            }
+        }
+    }
+
+    private static void menuVuelosSeleccionado(Vuelo vueloSeleccionado) {
+        String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Vuelo"};
+        String[] menuOpciones = {"1.Mostrar Vuelo", "2.Modificar Vuelo", "3.Eliminar Vuelo", "4.Mostrar lista de pasajeros", "0.Volver"};
+        while (true){  //Bucle infinito
+            title (titulos);
+            int option = menu(menuOpciones);
+            switch (option){
+                case 0://SALIDA APP
+                    System.out.println("Volviendo al menu principal");
+                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    return;//Me voy de la funcion
+                case 1:
+                    datosPrograma.MostrarVuelos();
+                    ToolsAndMenu.pausa();
+                    break;
+                case 2:
+                    //datosPrograma.MostrarClases();
+                    ToolsAndMenu.pausa();
+                    break;
+                case 3:
+                    //datosPrograma.MostrarClases();
+                    ToolsAndMenu.pausa();
+                    break;
+                case 4:
+                    datosPrograma.mostarListaPasajerosVuelo(vueloSeleccionado);
                     ToolsAndMenu.pausa();
                     break;
             }
@@ -206,9 +294,28 @@ public class AirNewAndorra {
                     return;
             }
         }
-    }    
-    
-    public static void main(String[] args) {
-        menuPrincipal();
     }
-}
+
+    static void menuOrigenes() {
+        String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Destinos"};
+        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver"};
+        while (true) {  //Bucle infinito
+            title(titulos);
+            int option = menu(menuOpciones);
+            switch (option) {
+                case 0://SALIDA APP
+                    System.out.println("Volviendo al menu principal");
+                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    return;//Me voy de la funcion
+                //break;
+                case 1:
+                    datosPrograma.MostrarOrigenes();
+                    ToolsAndMenu.pausa();
+                    return;
+            }
+        }
+    }
+        public static void main (String[]args){
+            menuPrincipal();
+        }
+    }

@@ -1,6 +1,7 @@
 package com.airnewandorra.models;
 
 import com.airnewandorra.enums.TipoAvion;
+import com.libraryMenuTools.ToolsAndMenu;
 
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -16,13 +17,13 @@ public class Vuelo {
   private String horaSalida;
   private String horaLlegada;
   private double duracion; //minutos
-  private Date fechaVuelo;
+  private String fechaVuelo;
   private TipoAvion tipoAvion;
   private int numMaxPasajeros;
   private int numMinPasajeros;
 
 
- public Vuelo(Origen aeropuertoOrigen, Destino aeropuertoDestino, String horaSalida, String horaLlegada, double duracion, Date fechaVuelo, TipoAvion tipoAvion, int numMaxPasajeros, int numMinPasajeros) {
+ public Vuelo(Origen aeropuertoOrigen, Destino aeropuertoDestino, String horaSalida, String horaLlegada, double duracion, String fechaVuelo, TipoAvion tipoAvion, int numMaxPasajeros, int numMinPasajeros) {
     this.id = count.incrementAndGet();
     this.aeropuertoOrigen = aeropuertoOrigen;
     this.aeropuertoDestino = aeropuertoDestino;
@@ -35,7 +36,9 @@ public class Vuelo {
     this.numMinPasajeros = numMinPasajeros;
   }
 
-  public int getId() {
+
+
+    public int getId() {
     return id;
   }
 
@@ -79,11 +82,11 @@ public class Vuelo {
     this.duracion = duracion;
   }
 
-  public Date getFechaVuelo() {
+  public String getFechaVuelo() {
     return fechaVuelo;
   }
 
-  public void setFechaVuelo(Date fechaVuelo) {
+  public void setFechaVuelo(String fechaVuelo) {
     this.fechaVuelo = fechaVuelo;
   }
 
@@ -110,4 +113,19 @@ public class Vuelo {
   public void setNumMinPasajeros(int numMinPasajeros) {
     this.numMinPasajeros = numMinPasajeros;
   }
+
+    public static Vuelo createVuelo(Origen origen, Destino destino,TipoAvion avion) {
+        Origen aeropuertoOrigen = origen;
+        Destino aeropuertoDestino = destino;
+        String horaSalida   = ToolsAndMenu.getStringFromKB("hora de salida");
+        String horaLlegada  = ToolsAndMenu.getStringFromKB("hora de llegada");
+        Double duracion     = ToolsAndMenu.getDoubleFromKB("duración");
+        String fechaVuelo   = ToolsAndMenu.getStringFromKB("fecha de vuelo (en formato dd/mm/yyyy)");
+        TipoAvion tipoAvion    = avion;
+        int numMaxPasajeros = ToolsAndMenu.getIntFromKB("número máximo de pasajeros");
+        int numMinPasajeros = ToolsAndMenu.getIntFromKB("número mínimo de pasajeros");
+
+        return new Vuelo(aeropuertoOrigen, aeropuertoDestino, horaSalida, horaLlegada, duracion, fechaVuelo, tipoAvion, numMaxPasajeros, numMinPasajeros);
+    }
+
 }
