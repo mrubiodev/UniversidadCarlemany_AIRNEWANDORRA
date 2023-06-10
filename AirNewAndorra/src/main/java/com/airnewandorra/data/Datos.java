@@ -10,6 +10,7 @@ import com.airnewandorra.models.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * Esta clase crea los datos iniciales de la aplicación.
@@ -30,6 +31,10 @@ public class Datos {
     crearClasesVuelos();
     crearDestinos();
     crearOrigenes();
+  }
+
+  public List<Pasajero> getListaPasajeros() {
+    return listaPasajeros;
   }
 
   private void crearClasesVuelos() {
@@ -64,20 +69,19 @@ public class Datos {
 
   /**
    * Este método devuelve la lista de destinos en una array de String con formato "ID - Nombre del destino"
-   * 
    */
   public void MostrarDestinos() {
   }
 
   /**
    * Este método devuelve la lista de destinos en una array de String con formato "ID - Nombre de la clase"
-   * 
    */
   public void MostrarClases() {
   }
 
   /**
    * Este método dado un nuevo pasajero y lo añade a la lista de pasajeros
+   *
    * @param nuevoPasajero
    */
   public void nuevoPasajero(Pasajero nuevoPasajero) {
@@ -85,26 +89,28 @@ public class Datos {
 
   /**
    * Este método devuelve la lista de pasajeros en una array de String con formato "ID - Nombre Apellido"
+   *
    * @return
    */
   public String[] getlistaPasajeros() {
-    final String[] pasajerosEnSistema = { "1 - Pepe", "2 - Juan", "3 - Maria" };
+    final String[] pasajerosEnSistema = {"1 - Pepe", "2 - Juan", "3 - Maria"};
     return pasajerosEnSistema;
   }
 
   /**
    * Este método devuelve un objeto de tipo Pasajero dado un ID
+   *
    * @param id
    * @return
    */
   public Pasajero returnPasajeroObjById(int id) {
-    
-      final Pasajero pasajeroByID = new Pasajero("Pedro Perez Salazar","12345678A","PAS23467hkj","695758586","lennycarl@gmail.com","Bizkaia", "España","68892346",null);
-      return pasajeroByID;
-  }
-}
 
-  private void modificarPasajeros(listaPasajeros){
+    final Pasajero pasajeroByID = new Pasajero("Pedro Perez Salazar", "12345678A", "PAS23467hkj", "695758586", "lennycarl@gmail.com", "Bizkaia", "España", "68892346", null);
+    return pasajeroByID;
+  }
+
+
+  public void modificarPasajeros(List<Pasajero> listaPasajeros) {
     Scanner scanner = new Scanner(System.in);
     System.out.print("Ingrese el número de DNI del pasajero que desea modificar: ");
     String dni = scanner.nextLine();
@@ -114,7 +120,7 @@ public class Datos {
       if (pasajero.getDni().equals(dni)) {
         encontrado = true;
 
-        Scanner scanner = new Scanner(System.in);
+        scanner = new Scanner(System.in);
         int opcion;
 
         do {
@@ -206,7 +212,7 @@ public class Datos {
               System.out.print("Opción no válida. Inténtelo de nuevo");
 
           }
-        } while (opcion!=10);
+        } while (opcion != 10);
 
         scanner.close();
 
@@ -230,20 +236,6 @@ public class Datos {
 
       }
 
-  private void modificarDestinos(){
-
+    }
   }
-
-  private void origen (){
-
-
-  }
-
-  private void vuelo_clase(){
-
-  }
-
-
-
 }
-

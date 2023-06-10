@@ -3,9 +3,9 @@
 package com.airnewandorra.airnewandorra;
 
 import com.airnewandorra.models.Pasajero;
-import com.utils.ToolsAndMenu;
-import static com.utils.ToolsAndMenu.menu;
-import static com.utils.ToolsAndMenu.title;
+import com.libraryMenuTools.ToolsAndMenu;
+import static com.libraryMenuTools.ToolsAndMenu.menu;
+import static com.libraryMenuTools.ToolsAndMenu.title;
 
 import com.airnewandorra.data.Datos;
 public class AirNewAndorra {
@@ -37,7 +37,7 @@ public class AirNewAndorra {
     
     static void menuCliente(){
         String[] titulos = {"AirNewAndorra", "1.Cliente"};
-        String[] menuOpciones = {"1.Crear Pasajero", "2.Seleccionar Pasajero", "0.Volver"};
+        String[] menuOpciones = {"1.Crear Pasajero", "2.Seleccionar Pasajero", "3.Modificar Pasajero por DNI", "0.Volver"};
         title (titulos);
         while (true){  //Bucle infinito
             title (titulos);
@@ -54,7 +54,7 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
-                    //FALTA POR IMPLANTAR
+                    datosPrograma.modificarPasajeros(datosPrograma.getListaPasajeros());
                     ToolsAndMenu.pausa();
                     break;
             }
