@@ -56,12 +56,7 @@ public final class Utils {
       if (month < 1 || month > 12) {
         return false;
       }
-      // actual year
-      int actualYear = Calendar.getInstance().get(Calendar.YEAR);
       
-      if (year < 1900 || year > actualYear) {
-        return false;
-      }
     } catch (Exception e) {
       return false;
     }
