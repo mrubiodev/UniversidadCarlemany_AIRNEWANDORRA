@@ -39,7 +39,7 @@ public class AirNewAndorra {
 
     static void menuCliente() {
         String[] titulos = {"AirNewAndorra", "1.Cliente"};
-        String[] menuOpciones = {"1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Seleccionar Pasajero"};
+        String[] menuOpciones = {"1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Seleccionar Pasajero", "0. Volver"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
@@ -66,7 +66,7 @@ public class AirNewAndorra {
     }
     
     static void selectPasajero() {
-        String[] titulos = { "AirNewAndorra", "1. Cliente", "2. Seleccionar Pasajero" };
+        String[] titulos = { "AirNewAndorra", "1. Cliente", "2. Seleccionar Pasajero", "0.Volver" };
         String[] listaStrPasajeros = datosPrograma.getlistaPasajeros();
         String[] listaStrPasajerosActualizada = new String[listaStrPasajeros.length + 1];
         System.arraycopy(listaStrPasajeros, 0, listaStrPasajerosActualizada, 0, listaStrPasajeros.length);

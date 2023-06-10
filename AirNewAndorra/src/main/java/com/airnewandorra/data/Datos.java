@@ -88,7 +88,7 @@ public class Datos {
         int c = 0;
         for (TipoAvion tipo : TipoAvion.values()) {
             c++;
-            System.out.println("\t" + c +" - "+ tipo.name());
+            System.out.println("\t" + c + " - " + tipo.name());
         }
     }
 
@@ -177,7 +177,7 @@ public class Datos {
             int opcionDestino = sc.nextInt();
 
             sc.nextLine(); //limpiamos
-            
+
             Destino destino = listaDestinos.get(opcionDestino - 1);
 
             System.out.println("Hora salida: ");
@@ -188,10 +188,9 @@ public class Datos {
 
             System.out.println("Duración: ");
             double duracion = sc.nextDouble();
-            
+
             sc.nextLine(); //limpiamos
-            
-            
+
             System.out.println("Fecha del vuelo (dd/MM/yyyy): ");
             String fechaVuelo = sc.nextLine();
 
@@ -285,7 +284,6 @@ public class Datos {
             String fechaNacimiento = sc.nextLine();
             pasajero.setFechaNacimiento(fechaNacimiento);
 
-
             // Validar la información recopilada
             if (!Utils.isEmail(pasajero.getCorreo())) {
                 System.out.println("El correo electrónico ingresado no es válido.");
@@ -322,7 +320,7 @@ public class Datos {
     public void modificarPasajero(Pasajero pasajero) {
         int opcion = 0;
 
-        System.out.println("Datos actuales del pasajero:");
+        System.out.println("¿Qué quieres modificar?:");
         System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
         System.out.println("2 DNI: " + pasajero.getDni());
         System.out.println("3 Pasaporte: " + pasajero.getPasaporte());
@@ -343,63 +341,72 @@ public class Datos {
                 String nuevoNombre = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setNombreApellido(nuevoNombre);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 2:
                 System.out.print("Ingrese el nuevo DNI del pasajero: ");
                 String nuevoDNI = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setDni(nuevoDNI);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 3:
                 System.out.print("Ingrese el nuevo pasaporte del pasajero: ");
                 String nuevoPasaporte = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setPasaporte(nuevoPasaporte);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 4:
                 System.out.print("Ingrese la nueva fecha de nacimiento del pasajero: ");
                 String nuevaFechaNacimiento = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setFechaNacimiento(nuevaFechaNacimiento);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 5:
                 System.out.print("Ingrese el nuevo teléfono del pasajero: ");
                 String nuevoTelefono = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setTelefono(nuevoTelefono);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 6:
                 System.out.print("Ingrese el nuevo correo: ");
                 String nuevoCorreo = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setCorreo(nuevoCorreo);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 7:
                 System.out.print("Ingrese la nueva provincia del pasajero: ");
                 String nuevaProvincia = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setProvincia(nuevaProvincia);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 8:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoPais = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setPais(nuevoPais);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 9:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoContactoDeEmergencia = sc.nextLine();
                 sc.nextLine(); // Limpia el buffer
                 pasajero.setContactoDeEmergencia(nuevoContactoDeEmergencia);
-                System.out.println("Datos del pasajero actualizados con éxito.");
+
+                break;
 
             case 10:
                 System.out.print("Ha seleccionado 'Salir' ");
@@ -409,6 +416,7 @@ public class Datos {
                 System.out.print("Opción no válida. Inténtelo de nuevo");
 
         }
+        System.out.println("Datos del pasajero actualizados con éxito.");
     }
 
     public void mostrarPasajeros(List<Pasajero> mostrarListaPasajeros) {
@@ -488,7 +496,6 @@ public class Datos {
                 tipoEquipaje = Equipaje.MANO;
             }
             reserva.setEquipaje(tipoEquipaje);
-
 
             System.out.println("7. ¿Lleva mascota? (true/false): ");
             boolean mascota = Boolean.parseBoolean(sc.nextLine());
