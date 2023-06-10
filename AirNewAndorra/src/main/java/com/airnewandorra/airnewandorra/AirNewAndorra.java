@@ -20,9 +20,8 @@ public class AirNewAndorra {
             switch (option){
                 case 0://SALIDA APP
                     System.out.println("Volviendo al menu principal");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
-                    return;//Me voy de la funcion
-                    //break;
+                    ToolsAndMenu.sleepThread(3);//Pausa por tiempo
+                    return;
                 case 1:
                     menuCliente();
                     ToolsAndMenu.pausa();
@@ -39,9 +38,27 @@ public class AirNewAndorra {
         String[] titulos = {"AirNewAndorra", "1.Cliente"};
         String[] menuOpciones = {"1.Crear Pasajero", "2.Seleccionar Pasajero", "0.Volver"};
         title (titulos);
-        int option = menu(menuOpciones);
+        while (true){  //Bucle infinito
+            title (titulos);
+            int option = menu(menuOpciones);
+            switch (option){
+                case 0://SALIDA APP
+                    System.out.println("Volviendo al menu principal");
+                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    return;//Me voy de la funcion
+                //break;
+                case 1:
+                    //FALTA POR IMPLANTAR
+                    ToolsAndMenu.pausa();
+                    break;
+                case 2:
+                    //FALTA POR IMPLANTAR
+                    ToolsAndMenu.pausa();
+                    break;
+            }
+        }
     }
-    
+
     static void menuGestor(){
         String[] titulos = {"AirNewAndorra", "2.Gestor"};
         String[] menuOpciones = {"1.Vuelos", "2.Clases", "3.Destinos", "4.Clases Vuelos", "0.Volver"};
@@ -55,6 +72,7 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                     //break;
                 case 1:
+                    //FALTA POR IMPLANTAR
                     //menuVuelos();
                     ToolsAndMenu.pausa();
                     break;
@@ -66,7 +84,8 @@ public class AirNewAndorra {
                     menuDestinos();
                     ToolsAndMenu.pausa();
                     break;
-                case 4:                
+                case 4:
+                    //FALTA POR IMPLANTAR
                     //menuClasesDeVuelos();
                     ToolsAndMenu.pausa();
                     break;
@@ -87,7 +106,7 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                     //break;
                 case 1:
-                    //datosPrograma.MostrarClases();
+                    datosPrograma.MostrarClases();
                     ToolsAndMenu.pausa();
                     break;
             }
@@ -107,7 +126,7 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                     //break;
                 case 1:
-                    //datosPrograma.MostrarDestinos();
+                    datosPrograma.MostrarDestinos();
                     ToolsAndMenu.pausa();
                     break;
             }

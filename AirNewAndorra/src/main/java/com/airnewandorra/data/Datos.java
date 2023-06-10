@@ -62,4 +62,9 @@ public class Datos {
     listaOrigenes.addAll(Arrays.asList(origenes));
   }
 
+  public void MostrarDestinos() {
+  }
+
+  public void MostrarClases() {
+  }
 }
