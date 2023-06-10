@@ -34,18 +34,13 @@ public class AirNewAndorra {
                     menuGestor();
                     ToolsAndMenu.pausa();
                     break;
-                case 3:          //Menu debug
-                    System.out.println("MODO DEMO ACTIVADO");
-                    datosPrograma.modoDemo();
-                    ToolsAndMenu.pausa();
-                    break;
             }
         }
     }
 
     static void menuCliente() {
         String[] titulos = {"AirNewAndorra", "1.Cliente"};
-        String[] menuOpciones = {"1.Crear Pasajero", "2.Modificar Pasajero por DNI", "0.Volver"};
+        String[] menuOpciones = {"1.Crear Pasajero", "2.Modificar lista de Pasajeros", "3.Modificar Pasajero por DNI", "0.Volver"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
@@ -60,10 +55,13 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
-                    modificarPasajeros(datosPrograma.getListaPasajeros());
+                    mostrarPasajeros(datosPrograma.getListaPasajeros());
                     ToolsAndMenu.pausa();
                     break;
-
+                case 3:
+                    modificarPasajeros(datosPrograma.getListaPasajeros());
+                    ToolsAndMenu.pausa();
+                    break;  
             }
         }
     }
@@ -96,11 +94,7 @@ public class AirNewAndorra {
                     menuDestinos();
                     ToolsAndMenu.pausa();
                     break;
-                case 5:
-                    //FALTA POR IMPLANTAR
-                    //menuClasesDeVuelos();
-                    ToolsAndMenu.pausa();
-                    break;
+        
             }
         }
     }
@@ -258,11 +252,6 @@ public class AirNewAndorra {
     }
 
     static void modificarPasajeros(List<Pasajero> listaPasajeros) {
-
-        List<Pasajero> mostrarListaPasajeros = datosPrograma.getListaPasajeros();
-        for (Pasajero pasajero : mostrarListaPasajeros) {
-            System.out.println(pasajero.getDni());
-        }
         Scanner scanner = new Scanner(System.in);
         System.out.print("Ingrese el número de DNI del pasajero que desea modificar: ");
         String dni = scanner.nextLine();
@@ -276,7 +265,6 @@ public class AirNewAndorra {
                 int opcion;
 
                 do {
-
                     System.out.println("Datos actuales del pasajero:");
                     System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
                     System.out.println("2 DNI: " + pasajero.getDni());
