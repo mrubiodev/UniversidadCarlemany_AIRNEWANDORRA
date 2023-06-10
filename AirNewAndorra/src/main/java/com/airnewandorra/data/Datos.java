@@ -238,4 +238,26 @@ public class Datos {
 
     }
   }
+
+
+  /**
+   *  Esta funcion rellena las listas de la aplicacion con datos de prueba
+   */
+  public void modoDemo() {
+  }
+
+  /**
+   * Llamara al metodo del objeto mostrar pasajero
+   * @param pasajeroSeleccionado
+   */
+  public void mostrarDatosPasajeroByObj(Pasajero pasajeroSeleccionado) {
+  }
+
+  /**
+   * Recibe un pasajero modificado se tiene que buscar en la lista por el id que es el unico campo que no se puede cambiar y modificar un objeto por el nuevo
+   * @param pasajeroModificador
+   */
+  public void modificarPasajerosByObj(Pasajero pasajeroModificador) {
+
+  }
 }

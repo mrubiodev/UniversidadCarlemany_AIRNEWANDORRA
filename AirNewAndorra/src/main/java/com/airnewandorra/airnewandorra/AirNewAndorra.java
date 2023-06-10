@@ -9,19 +9,22 @@ import static com.libraryMenuTools.ToolsAndMenu.title;
 
 import com.airnewandorra.data.Datos;
 public class AirNewAndorra {
-
+    private static boolean DEBUGMODE = true;
     public static Datos datosPrograma;
     
     static void menuPrincipal(){
         datosPrograma = new Datos();
         String[] menuOpciones = {"1.Cliente", "2.Gestor", "0.Salir"};
+        if (DEBUGMODE) {
+            menuOpciones = new String[]{"1.Cliente", "2.Gestor", "3.Modo Demo", "0.Salir"};
+        }
         while (true){  //Bucle infinito
             title ("AirNewAndorra");
             int option = menu(menuOpciones);
             switch (option){
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
-                    ToolsAndMenu.sleepThread(3);//Pausa por tiempo
+                    System.out.println("Hasta Pronto AirNewAndorra le desea un feliz dia");
+                    ToolsAndMenu.sleepThread(1);//Pausa por tiempo
                     return;
                 case 1:
                     menuCliente();
@@ -29,6 +32,11 @@ public class AirNewAndorra {
                     break;
                 case 2:                
                     menuGestor();
+                    ToolsAndMenu.pausa();
+                    break;
+                case 3:          //Menu debug
+                    System.out.println("MODO DEMO ACTIVADO");
+                    datosPrograma.modoDemo();
                     ToolsAndMenu.pausa();
                     break;
             }
@@ -65,7 +73,7 @@ public class AirNewAndorra {
     }
 
     static void selectPasajero() {
-        String[] titulos = { "AirNewAndorra", "1. Cliente", "2. Seleccionar Pasajero" };
+        String[] titulos = { "AirNewAndorra", "1. Cliente", "2. Gestion Pasajero" };
         String[] listaStrPasajeros = datosPrograma.getlistaPasajeros();
         String[] listaStrPasajerosActualizada = new String[listaStrPasajeros.length + 1];
         System.arraycopy(listaStrPasajeros, 0, listaStrPasajerosActualizada, 0, listaStrPasajeros.length);
@@ -92,7 +100,7 @@ public class AirNewAndorra {
 
     static void menuPasajeroSeleccionado(Pasajero pasajeroSeleccionado) {
         String[] titulos = {"AirNewAndorra", "1.Cliente","3." + pasajeroSeleccionado.getNombreApellido()};
-        String[] menuOpciones = {"1.Modificar Pasajero", "2.Crear Reserva", "0.Volver"};
+        String[] menuOpciones = {"1.Mostrar datos Pasajero","2.Modificar Pasajero", "3.Crear Reserva", "0.Volver"};
         while (true){  //Bucle infinito
             title (titulos);
             int option = menu(menuOpciones);
@@ -103,11 +111,18 @@ public class AirNewAndorra {
                     return;//Me voy de la funcion
                 //break;
                 case 1:
-                    Pasajero nuevoPasajero = Pasajero.createPasajero();
-                    datosPrograma.nuevoPasajero(nuevoPasajero);
+                    datosPrograma.mostrarDatosPasajeroByObj(pasajeroSeleccionado);
                     ToolsAndMenu.pausa();
                     break;
                 case 2:
+                    Pasajero pasajeroModificado = pasajeroSeleccionado.ModificarPasajero(pasajeroSeleccionado);
+                    if (ToolsAndMenu.getYESorNOTFromKB("modificar el pasajero"){
+                        datosPrograma.modificarPasajerosByObj(pasajeroModificado);
+                    }
+
+                    ToolsAndMenu.pausa();
+                    break;
+                case 3:
                     //FALTA POR IMPLANTAR
                     ToolsAndMenu.pausa();
                     break;
