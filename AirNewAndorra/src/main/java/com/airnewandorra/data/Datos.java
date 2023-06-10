@@ -83,13 +83,19 @@ public class Datos {
      */
     public void MostrarDestinos() {
         for (Destino destino : listaDestinos) {
-            System.out.println(destino.getId() + " - " + destino.getNombreDestino());
+            System.out.println("\t" + destino.getId() + " - " + destino.getNombreDestino());
+        }
+    }
+
+    private void MostrarTiposAvion() {
+        for (TipoAvion tipo : TipoAvion.values()) {
+            System.out.println("\t" + tipo.name());
         }
     }
 
     public void MostrarOrigenes() {
         for (Origen origen : listaOrigenes) {
-            System.out.println(origen.getId() + " - " + origen.getNombreOrigen());
+            System.out.println("\t" + origen.getId() + " - " + origen.getNombreOrigen());
         }
     }
 
@@ -145,12 +151,80 @@ public class Datos {
         }
     }
 
+    /**
+     * Se crea un nuevo vuelo
+     */
     public void nuevoVuelo() {
         Vuelo vuelo = new Vuelo();
-
+        boolean datosIncorrectos = false;
         do {
-            //TODO
-        } while (true);
+            System.out.println("Orígenes disponibles: ");
+            MostrarOrigenes();
+
+            System.out.println("Aeropuesto de origen: ");
+            int opcionOrigen = sc.nextInt();
+
+            Origen origen = listaOrigenes.get(opcionOrigen - 1);
+
+            System.out.println("Destinos disponibles: ");
+            MostrarDestinos();
+
+            System.out.println("Aeropuesto de destino: ");
+            int opcionDestino = sc.nextInt();
+
+            Destino destino = listaDestinos.get(opcionDestino - 1);
+
+            System.out.println("Hora salida: ");
+            String salida = sc.nextLine();
+
+            System.out.println("Hora llegada: ");
+            String llegada = sc.nextLine();
+
+            System.out.println("Duración: ");
+            double duracion = sc.nextDouble();
+
+            System.out.println("Fecha del vuelo (dd/MM/yyyy): ");
+            String fechaVuelo = sc.nextLine();
+
+            MostrarTiposAvion();
+            System.out.println("Tipo de avión: ");
+            int tipoAvion = sc.nextInt();
+            TipoAvion tipo = TipoAvion.values()[tipoAvion - 1];
+
+            System.out.println("Número máximo de pasajeros: ");
+            int numMax = sc.nextInt();
+
+            System.out.println("Número mínimo de pasajeros: ");
+            int numMin = sc.nextInt();
+
+            vuelo.setTipoAvion(tipo);
+            vuelo.setFechaVuelo(fechaVuelo);
+            vuelo.setDuracion(duracion);
+            vuelo.setHoraSalida(salida);
+            vuelo.setHoraLlegada(llegada);
+            vuelo.setAeropuertoOrigen(origen);
+            vuelo.setAeropuertoDestino(destino);
+            vuelo.setNumMaxPasajeros(numMax);
+            vuelo.setNumMinPasajeros(numMin);
+
+            // Validar la información ingresada utilizando los métodos de Utils
+            if (!Utils.isDate(vuelo.getFechaVuelo())) {
+                System.out.println("La fecha de vuelo ingresada no es válida.");
+                datosIncorrectos = true;
+            } else if (!Utils.isNumeric(Double.toString(vuelo.getDuracion()))) {
+                System.out.println("La duración ingresada no es válida.");
+                datosIncorrectos = true;
+            } else if (!vuelo.getHoraSalida().contains(":")) {
+                System.out.println("La hora de salida ingresada no es válida.");
+                datosIncorrectos = true;
+            } else if (!vuelo.getHoraLlegada().contains(":")) {
+                System.out.println("La hora de llegada ingresada no es válida.");
+                datosIncorrectos = true;
+            } else {
+                datosIncorrectos = false;  // Todos los datos son válidos, salimos del bucle
+            }
+
+        } while (datosIncorrectos);
     }
 
     public List<Vuelo> getlistaVuelos() {
@@ -160,7 +234,7 @@ public class Datos {
     public void crearPasajero(List<Pasajero> listaPasajeros1) {
         Pasajero pasajero = new Pasajero();
         boolean datosIncorrectos = false;
-        
+
         do {
             // Recopilar información del pasajero
             System.out.println("1 Nombre y apellidos: ");
