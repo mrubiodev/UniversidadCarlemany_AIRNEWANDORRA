@@ -1,5 +1,7 @@
 package com.airnewandorra.utils;
 
+import java.util.Calendar;
+
 public final class Utils {
 
   // comprobamos si el string es un número
@@ -54,9 +56,7 @@ public final class Utils {
       if (month < 1 || month > 12) {
         return false;
       }
-      if (year < 1900 || year > 2021) {
-        return false;
-      }
+      
     } catch (Exception e) {
       return false;
     }
