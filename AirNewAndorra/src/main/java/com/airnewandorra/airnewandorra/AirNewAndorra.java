@@ -182,14 +182,15 @@ public class AirNewAndorra {
                 case 1:
                     datosPrograma.MostrarClases();
                     ToolsAndMenu.pausa();
-                    break;
+                    return;
+
             }
         }
     }    
 
     static void menuDestinos(){
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Destinos"};
-        String[] menuOpciones = {"1.Mostrar Clases", "0.Volver"};
+        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver"};
         while (true){  //Bucle infinito
             title (titulos);
             int option = menu(menuOpciones);
@@ -202,7 +203,7 @@ public class AirNewAndorra {
                 case 1:
                     datosPrograma.MostrarDestinos();
                     ToolsAndMenu.pausa();
-                    break;
+                    return;
             }
         }
     }    
