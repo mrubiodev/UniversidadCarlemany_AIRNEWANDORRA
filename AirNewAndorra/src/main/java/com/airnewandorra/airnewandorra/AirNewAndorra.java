@@ -15,7 +15,7 @@ public class AirNewAndorra {
 
     static void menuPrincipal() {
         datosPrograma = new Datos();
-        String[] menuOpciones = {"1.Cliente", "2.Gestor", "0.Salir"};
+        String[] menuOpciones = {"1.Cliente", "2.Gestor", "0.Salir \n"};
 
         while (true) {  //Bucle infinito
             title("AirNewAndorra");
@@ -39,13 +39,13 @@ public class AirNewAndorra {
 
     static void menuCliente() {
         String[] titulos = {"AirNewAndorra", "1.Cliente"};
-        String[] menuOpciones = {"1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Seleccionar Pasajero", "0. Volver"};
+        String[] menuOpciones = {"1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Seleccionar Pasajero", "0. Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menu principal \n");
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 case 1:
@@ -77,7 +77,7 @@ public class AirNewAndorra {
             if (option >= 0 && option <= listaStrPasajerosActualizada.length - 1) {
                 switch (option) {
                     case 0:
-                        System.out.println("Volviendo al menú principal");
+                        System.out.println("Volviendo al menú principal \n");
                         return;
                     default:
                         Pasajero pasajeroSeleccionado = datosPrograma.returnPasajeroObjById(option);
@@ -86,7 +86,7 @@ public class AirNewAndorra {
                         break;
                 }
             } else {
-                System.out.println("Selección incorrecta. Por favor, elige una opción válida.");
+                System.out.println("Selección incorrecta. Por favor, elige una opción válida. \n");
             }
         }
     }
@@ -94,13 +94,13 @@ public class AirNewAndorra {
     
     static void menuPasajeroSeleccionado(Pasajero pasajeroSeleccionado) {
         String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Seleccionar pasajero"};
-        String[] menuOpciones = {"1.Modificar", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver"};
+        String[] menuOpciones = {"1.Modificar", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menu principal \n");
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 case 1:
@@ -126,13 +126,13 @@ public class AirNewAndorra {
 
     static void menuGestor() {
         String[] titulos = {"AirNewAndorra", "2.Gestor"};
-        String[] menuOpciones = {"1.Vuelos", "2.Clases", "3.Origenes", "4.Destinos", "5.Clases Vuelos", "0.Volver"};
+        String[] menuOpciones = {"1.Vuelos", "2.Clases", "3.Origenes", "4.Destinos", "5.Clases Vuelos", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menu principal \n");
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 //break;
@@ -159,13 +159,13 @@ public class AirNewAndorra {
 
     private static void menuVuelos() {
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Vuelos"};
-        String[] menuOpciones = {"1.Mostrar Vuelos", "2.Crear Vuelo", "3.Seleccionar Vuelo"};
+        String[] menuOpciones = {"1.Mostrar Vuelos", "2.Crear Vuelo", "3.Seleccionar Vuelo \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menu principal \n");
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 case 1:
@@ -186,13 +186,13 @@ public class AirNewAndorra {
 
     static void menuClases() {
         String[] titulos = {"AirNewAndorra", "2.Gestor", "2.Clases"};
-        String[] menuOpciones = {"1.Mostrar Clases", "0.Volver"};
+        String[] menuOpciones = {"1.Mostrar Clases", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menu principal \n");
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 //break;
@@ -207,13 +207,13 @@ public class AirNewAndorra {
 
     static void menuDestinos() {
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Destinos"};
-        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver"};
+        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menu principal \n");
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 //break;
@@ -227,13 +227,13 @@ public class AirNewAndorra {
 
     static void menuOrigenes() {
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Destinos"};
-        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver"};
+        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal");
+                    System.out.println("Volviendo al menu principal \n");
                     //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 //break;

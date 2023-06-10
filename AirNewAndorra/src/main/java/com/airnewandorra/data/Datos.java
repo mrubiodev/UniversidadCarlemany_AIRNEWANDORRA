@@ -139,7 +139,7 @@ public class Datos {
      * @param listaVuelos
      */
     public void MostrarVuelos(List<Vuelo> listaVuelos) {
-        System.out.println("Datos actuales de los vuelos:");
+        System.out.println("Datos actuales de los vuelos: \n");
         for (Vuelo vuelo : listaVuelos) {
             System.out.println("ID: " + vuelo.getId());
             System.out.println("Aeropuerto de origen: " + vuelo.getAeropuertoOrigen());
@@ -150,7 +150,7 @@ public class Datos {
             System.out.println("Fecha de vuelo: " + vuelo.getFechaVuelo());
             System.out.println("Tipo de avión: " + vuelo.getTipoAvion());
             System.out.println("Número máximo de pasajeros: " + vuelo.getNumMaxPasajeros());
-            System.out.println("Número mínimo de pasajeros: " + vuelo.getNumMinPasajeros());
+            System.out.println("Número mínimo de pasajeros: " + vuelo.getNumMinPasajeros()+ "\n");
 
         }
     }
@@ -232,7 +232,7 @@ public class Datos {
                 datosIncorrectos = false;  // Todos los datos son válidos, salimos del bucle
             }
 
-            System.out.println("Vuelo creado correctamente.");
+            System.out.println("Vuelo creado correctamente. \n");
             listaVuelos.add(vuelo);
         } while (datosIncorrectos);
     }
@@ -307,9 +307,9 @@ public class Datos {
 
             if (datosIncorrectos) {
                 // Mostrar mensaje de datos incorrectos y repetir el bucle
-                System.out.println("Por favor, ingrese los datos nuevamente.");
+                System.out.println("Por favor, ingrese los datos nuevamente. \n");
             } else {
-                System.out.println("Pasajero creado correctamente.");
+                System.out.println("Pasajero creado correctamente. \n");
             }
 
             listaPasajeros1.add(pasajero);
@@ -320,7 +320,7 @@ public class Datos {
     public void modificarPasajero(Pasajero pasajero) {
         int opcion = 0;
 
-        System.out.println("¿Qué quieres modificar?:");
+        System.out.println("¿Qué quieres modificar?: \n");
         System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
         System.out.println("2 DNI: " + pasajero.getDni());
         System.out.println("3 Pasaporte: " + pasajero.getPasaporte());
@@ -330,7 +330,7 @@ public class Datos {
         System.out.println("7 Provincia: " + pasajero.getProvincia());
         System.out.println("8 País: " + pasajero.getPais());
         System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
-        System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia());
+        System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia()+ "\n");
         System.out.print("Ingrese una opción: ");
 
         opcion = sc.nextInt();
@@ -409,18 +409,18 @@ public class Datos {
                 break;
 
             case 10:
-                System.out.print("Ha seleccionado 'Salir' ");
+                System.out.print("Ha seleccionado 'Salir' \n");
                 break;
 
             default:
-                System.out.print("Opción no válida. Inténtelo de nuevo");
+                System.out.print("Opción no válida. Inténtelo de nuevo \n");
 
         }
-        System.out.println("Datos del pasajero actualizados con éxito.");
+        System.out.println("Datos del pasajero actualizados con éxito. \n");
     }
 
     public void mostrarPasajeros(List<Pasajero> mostrarListaPasajeros) {
-        System.out.println("Datos actuales de los pasajeros:");
+        System.out.println("Datos actuales de los pasajeros: \n");
         for (Pasajero pasajero : mostrarListaPasajeros) {
 
             System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
@@ -431,8 +431,7 @@ public class Datos {
             System.out.println("6 Email: " + pasajero.getCorreo());
             System.out.println("7 Provincia: " + pasajero.getProvincia());
             System.out.println("8 País: " + pasajero.getPais());
-            System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
-            System.out.println("\n");
+            System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia()+ "\n");
         }
 
     }
@@ -443,81 +442,78 @@ public class Datos {
 
     public void crearReserva(Pasajero pasajeroSeleccionado) {
         Reserva reserva = new Reserva();
-        boolean datosIncorrectos = false;
 
-        do {
-            // Recopilar información de la reserva
-            int lastId = listaPasajeros.get(listaPasajeros.size() - 1).getID();
-            reserva.setId(lastId + 1);
+        // Recopilar información de la reserva
+        int lastId = listaPasajeros.get(listaPasajeros.size() - 1).getID();
+        reserva.setId(lastId + 1);
 
-            System.out.println("2. Datos del vuelo: ");
-            // Aquí deberías tener la lógica para recopilar los datos del vuelo
+        System.out.println("2. Datos del vuelo: ");
+        // Aquí deberías tener la lógica para recopilar los datos del vuelo
 
-            System.out.println("3. Clase de vuelo: ");
-            String tipoClasevuelo = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
-            Clases tipoClase;
+        System.out.println("3. Clase de vuelo: ");
+        String tipoClasevuelo = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
+        Clases tipoClase;
 
-            // Validar la opción ingresada y asignar el tipo de clase de vuelo correspondiente
-            if (tipoClasevuelo.equals("ECONOMIC")) {
-                tipoClase = Clases.ECONOMIC;
-            } else if (tipoClasevuelo.equals("BUSINESS")) {
-                tipoClase = Clases.BUSINESS;
-            } else if (tipoClasevuelo.equals("FIRST")) {
-                tipoClase = Clases.FIRST;
-            } else {
-                System.out.println("La opción ingresada no es válida. Se asignará el tipo de equipaje 'ECONOMIC' por defecto.");
-                tipoClase = Clases.ECONOMIC;
-            }
-            reserva.setClaseVuelo(tipoClase);
+        // Validar la opción ingresada y asignar el tipo de clase de vuelo correspondiente
+        if (tipoClasevuelo.equals("ECONOMIC")) {
+            tipoClase = Clases.ECONOMIC;
+        } else if (tipoClasevuelo.equals("BUSINESS")) {
+            tipoClase = Clases.BUSINESS;
+        } else if (tipoClasevuelo.equals("FIRST")) {
+            tipoClase = Clases.FIRST;
+        } else {
+            System.out.println("La opción ingresada no es válida. Se asignará el tipo de equipaje 'ECONOMIC' por defecto.");
+            tipoClase = Clases.ECONOMIC;
+        }
+        reserva.setClaseVuelo(tipoClase);
 
-            System.out.println("4. Nombre y apellidos del pasajero: ");
-            String nombreApellidos = sc.nextLine();
-            Pasajero pasajero = new Pasajero();
-            pasajero.setNombreApellido(nombreApellidos);
-            reserva.setPasajero(pasajero);
+        System.out.println("4. Nombre y apellidos del pasajero: ");
+        String nombreApellidos = sc.nextLine();
+        Pasajero pasajero = new Pasajero();
+        pasajero.setNombreApellido(nombreApellidos);
+        reserva.setPasajero(pasajero);
 
-            System.out.println("5. Fecha de reserva: ");
-            String fechaReserva = sc.nextLine();
-            reserva.setFechaReserva(fechaReserva);
+        System.out.println("5. Fecha de reserva: ");
+        String fechaReserva = sc.nextLine();
+        reserva.setFechaReserva(fechaReserva);
 
-            System.out.println("6. Datos del equipaje (mano/facturado/ambos): ");
-            String tipoEquipajeStr = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
-            Equipaje tipoEquipaje;
+        System.out.println("6. Datos del equipaje (mano/facturado/ambos): ");
+        String tipoEquipajeStr = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
+        Equipaje tipoEquipaje;
 
-            // Validar la opción ingresada y asignar el tipo de equipaje correspondiente
-            if (tipoEquipajeStr.equals("MANO")) {
-                tipoEquipaje = Equipaje.MANO;
-            } else if (tipoEquipajeStr.equals("FACTURADO")) {
-                tipoEquipaje = Equipaje.FACTURADO;
-            } else if (tipoEquipajeStr.equals("AMBOS")) {
-                tipoEquipaje = Equipaje.AMBOS;
-            } else {
-                System.out.println("La opción ingresada no es válida. Se asignará el tipo de equipaje 'MANO' por defecto.");
-                tipoEquipaje = Equipaje.MANO;
-            }
-            reserva.setEquipaje(tipoEquipaje);
+        // Validar la opción ingresada y asignar el tipo de equipaje correspondiente
+        if (tipoEquipajeStr.equals("MANO")) {
+            tipoEquipaje = Equipaje.MANO;
+        } else if (tipoEquipajeStr.equals("FACTURADO")) {
+            tipoEquipaje = Equipaje.FACTURADO;
+        } else if (tipoEquipajeStr.equals("AMBOS")) {
+            tipoEquipaje = Equipaje.AMBOS;
+        } else {
+            System.out.println("La opción ingresada no es válida. Se asignará el tipo de equipaje 'MANO' por defecto.");
+            tipoEquipaje = Equipaje.MANO;
+        }
+        reserva.setEquipaje(tipoEquipaje);
 
-            System.out.println("7. ¿Lleva mascota? (true/false): ");
-            boolean mascota = Boolean.parseBoolean(sc.nextLine());
-            reserva.setMascota(mascota);
+        System.out.println("7. ¿Lleva mascota? (true/false): ");
+        boolean mascota = Boolean.parseBoolean(sc.nextLine());
+        reserva.setMascota(mascota);
 
-            System.out.println("8. Estado de la reserva (confirmado/cancelado): ");
-            String estadoReservaStr = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
-            Estado estadoReserva;
+        System.out.println("8. Estado de la reserva (confirmado/cancelado): ");
+        String estadoReservaStr = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
+        Estado estadoReserva;
 
-            // Validar la opción ingresada y asignar el estado correspondiente
-            if (estadoReservaStr.equals("CONFIRMADO")) {
-                estadoReserva = Estado.CONFIRMADO;
-            } else if (estadoReservaStr.equals("CANCELADO")) {
-                estadoReserva = Estado.CANCELADO;
-            } else {
-                System.out.println("La opción ingresada no es válida. Se asignará el estado 'CONFIRMADO' por defecto.");
-                estadoReserva = Estado.CONFIRMADO;
-            }
+        // Validar la opción ingresada y asignar el estado correspondiente
+        if (estadoReservaStr.equals("CONFIRMADO")) {
+            estadoReserva = Estado.CONFIRMADO;
+        } else if (estadoReservaStr.equals("CANCELADO")) {
+            estadoReserva = Estado.CANCELADO;
+        } else {
+            System.out.println("La opción ingresada no es válida. Se asignará el estado 'CONFIRMADO' por defecto. \n");
+            estadoReserva = Estado.CONFIRMADO;
+        }
 
-            reserva.setEstado(estadoReserva);
+        reserva.setEstado(estadoReserva);
 
-        } while (datosIncorrectos);
     }
 
     /**
@@ -552,7 +548,7 @@ public class Datos {
             System.out.println("Equipaje: " + reserva.getEquipaje().name());
             System.out.println("Estado: " + reserva.getEstado().name());
             System.out.println("Mascota: " + (reserva.isMascota() ? "Sí" : "No"));
-            System.out.println("Clase de reserva: " + reserva.getClaseVuelo().getClase());
+            System.out.println("Clase de reserva: " + reserva.getClaseVuelo().getClase() +"\n");
 
         }
     }
