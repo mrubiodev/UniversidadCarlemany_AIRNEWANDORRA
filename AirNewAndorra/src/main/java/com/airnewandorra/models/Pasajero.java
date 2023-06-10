@@ -22,7 +22,7 @@ public class Pasajero {
     private String provincia;
     private String pais;
     private String contactoDeEmergencia;
-    private String fechaNacimiento;
+    private String fechaNacimiento; // dd/MM/yyyy
     
     public Pasajero(String nombreApellido, String dni, String pasaporte, String telefono, String correo, String provincia, String pais, String contactoDeEmergencia, String fechaNacimiento) {
         this.ID = count.incrementAndGet();

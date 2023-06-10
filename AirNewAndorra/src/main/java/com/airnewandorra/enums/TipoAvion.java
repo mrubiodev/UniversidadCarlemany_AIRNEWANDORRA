@@ -1,4 +1,4 @@
-package com.airnewandorra.models;
+package com.airnewandorra.enums;
 
 public enum TipoAvion {
   AIRBUS_A320,

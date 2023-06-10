@@ -4,7 +4,7 @@
  */
 package com.airnewandorra.data;
 
-import com.airnewandorra.enums.Enum_ClasesVuelos;
+import com.airnewandorra.enums.Clases;
 import com.airnewandorra.models.*;
 
 import java.util.ArrayList;
@@ -23,9 +23,8 @@ public class Datos {
   private List<ClaseVuelo> listaClases = new ArrayList<>();
   private List<Destino> listaDestinos = new ArrayList<>();
   private List<Origen> listaOrigenes = new ArrayList<>();
-  private List<Vuelo_Clase> listaClasesVuelo = new ArrayList<>();
   private List<Vuelo> listaVuelos = new ArrayList<>();
-  private List<Pasajero_Vuelo> listaPasajerosVuelo = new ArrayList<>();
+
 
   public Datos() {
     crearClasesVuelos();
@@ -38,13 +37,12 @@ public class Datos {
   }
 
   private void crearClasesVuelos() {
-    // Recorremos el enum de clases de vuelo
-    for (Enum_ClasesVuelos clase : Enum_ClasesVuelos.values()) {
-      // Creamos un objeto de la clase ClaseVuelo
-      ClaseVuelo claseVuelo = new ClaseVuelo(clase.getClase());
-      // Añadimos el objeto a la lista de clases de vuelo
-      listaClases.add(claseVuelo);
-    }
+    ClaseVuelo clase1 = new ClaseVuelo(1, Clases.ECONOMIC, 100, 50);
+    ClaseVuelo clase2 = new ClaseVuelo(2, Clases.BUSINESS, 200, 100);
+    ClaseVuelo clase3 = new ClaseVuelo(3, Clases.FIRST, 300, 150);
+
+    ClaseVuelo[] clases = {clase1, clase2, clase3};
+    listaClases.addAll(Arrays.asList(clases));
   }
 
   private void crearDestinos() {
@@ -71,12 +69,18 @@ public class Datos {
    * Este método devuelve la lista de destinos en una array de String con formato "ID - Nombre del destino"
    */
   public void MostrarDestinos() {
+    for (Destino destino : listaDestinos) {
+      System.out.println(destino.getId() + " - " + destino.getNombreDestino());
+    }
   }
 
   /**
-   * Este método devuelve la lista de destinos en una array de String con formato "ID - Nombre de la clase"
+   * Este método devuelve la lista de clases en una array de String con formato "ID - Nombre de la clase"
    */
   public void MostrarClases() {
+    for (ClaseVuelo clase : listaClases) {
+      System.out.println(clase.getId() + " - " + clase.getNombre());
+    }
   }
 
   /**
@@ -85,6 +89,7 @@ public class Datos {
    * @param nuevoPasajero
    */
   public void nuevoPasajero(Pasajero nuevoPasajero) {
+    listaPasajeros.add(nuevoPasajero);
   }
 
   /**
@@ -93,8 +98,13 @@ public class Datos {
    * @return
    */
   public String[] getlistaPasajeros() {
-    final String[] pasajerosEnSistema = {"1 - Pepe", "2 - Juan", "3 - Maria"};
-    return pasajerosEnSistema;
+    String[] listaPasajerosString = new String[listaPasajeros.size()];
+    int i = 0;
+    for (Pasajero pasajero : listaPasajeros) {
+      listaPasajerosString[i] = pasajero.getID() + " - " + pasajero.getNombreApellido();
+      i++;
+    }
+    return listaPasajerosString;
   }
 
   /**
@@ -104,11 +114,14 @@ public class Datos {
    * @return
    */
   public Pasajero returnPasajeroObjById(int id) {
-
-    final Pasajero pasajeroByID = new Pasajero("Pedro Perez Salazar", "12345678A", "PAS23467hkj", "695758586", "lennycarl@gmail.com", "Bizkaia", "España", "68892346", null);
-    return pasajeroByID;
+    Pasajero pasajero = null;
+    for (Pasajero pasajero1 : listaPasajeros) {
+      if (pasajero1.getID() == id) {
+        pasajero = pasajero1;
+      }
+    }
+    return pasajero;
   }
-
 
   public void modificarPasajeros(List<Pasajero> listaPasajeros) {
     Scanner scanner = new Scanner(System.in);

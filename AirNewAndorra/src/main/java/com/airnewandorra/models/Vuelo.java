@@ -1,5 +1,7 @@
 package com.airnewandorra.models;
 
+import com.airnewandorra.enums.TipoAvion;
+
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
