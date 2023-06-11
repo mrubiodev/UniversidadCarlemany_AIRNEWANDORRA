@@ -330,16 +330,15 @@ public class Datos {
         System.out.println("7 Provincia: " + pasajero.getProvincia());
         System.out.println("8 País: " + pasajero.getPais());
         System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
-        System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia());
         System.out.print("Ingrese una opción: ");
 
         opcion = sc.nextInt();
+        sc.nextLine(); // Limpia el búfer de entrada después de leer el entero
 
         switch (opcion) {
             case 1:
                 System.out.print("Ingrese el nuevo nombre y apellidos del pasajero: ");
                 String nuevoNombre = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setNombreApellido(nuevoNombre);
 
                 break;
@@ -347,7 +346,6 @@ public class Datos {
             case 2:
                 System.out.print("Ingrese el nuevo DNI del pasajero: ");
                 String nuevoDNI = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setDni(nuevoDNI);
 
                 break;
@@ -355,7 +353,6 @@ public class Datos {
             case 3:
                 System.out.print("Ingrese el nuevo pasaporte del pasajero: ");
                 String nuevoPasaporte = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setPasaporte(nuevoPasaporte);
 
                 break;
@@ -363,7 +360,6 @@ public class Datos {
             case 4:
                 System.out.print("Ingrese la nueva fecha de nacimiento del pasajero: ");
                 String nuevaFechaNacimiento = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setFechaNacimiento(nuevaFechaNacimiento);
 
                 break;
@@ -371,7 +367,6 @@ public class Datos {
             case 5:
                 System.out.print("Ingrese el nuevo teléfono del pasajero: ");
                 String nuevoTelefono = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setTelefono(nuevoTelefono);
 
                 break;
@@ -379,7 +374,6 @@ public class Datos {
             case 6:
                 System.out.print("Ingrese el nuevo correo: ");
                 String nuevoCorreo = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setCorreo(nuevoCorreo);
 
                 break;
@@ -387,7 +381,6 @@ public class Datos {
             case 7:
                 System.out.print("Ingrese la nueva provincia del pasajero: ");
                 String nuevaProvincia = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setProvincia(nuevaProvincia);
 
                 break;
@@ -395,7 +388,6 @@ public class Datos {
             case 8:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoPais = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setPais(nuevoPais);
 
                 break;
@@ -403,20 +395,17 @@ public class Datos {
             case 9:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoContactoDeEmergencia = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setContactoDeEmergencia(nuevoContactoDeEmergencia);
 
                 break;
 
-            case 10:
-                System.out.print("Ha seleccionado 'Salir' ");
-                break;
 
             default:
                 System.out.print("Opción no válida. Inténtelo de nuevo");
 
         }
         System.out.println("Datos del pasajero actualizados con éxito.");
+  
     }
 
     public void mostrarPasajeros(List<Pasajero> mostrarListaPasajeros) {
@@ -444,6 +433,7 @@ public class Datos {
     public void crearReserva(Pasajero pasajeroSeleccionado) {
         Reserva reserva = new Reserva();
         boolean datosIncorrectos = false;
+        //TODO: Crear la reserva para el pasajero seleccionado y volver el pasajero seleccionado.
 
         do {
             // Recopilar información de la reserva
