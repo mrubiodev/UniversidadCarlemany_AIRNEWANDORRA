@@ -189,7 +189,7 @@ public class AirNewAndorra {
             if (option >= 0 && option <= listaStrVuelosActualizada.length - 1) {
                 switch (option) {
                     case 0:
-                        System.out.println("Volviendo al menú anterior \n");
+                        System.out.println("Volviendo al menu anterior \n");
                         return;
                     default:
                         Vuelo vueloSeleccionado = datosPrograma.returnVueloObjById(option);
@@ -198,7 +198,7 @@ public class AirNewAndorra {
                         break;
                 }
             } else {
-                System.out.println("Selección incorrecta. Por favor, elige una opción válida. \n");
+                System.out.println("Seleccion incorrecta. Por favor, elige una opcion valida. \n");
             }
         }
     }
