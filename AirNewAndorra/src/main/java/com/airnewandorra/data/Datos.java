@@ -35,7 +35,7 @@ public class Datos {
     public List<Pasajero> getListaPasajeros() {
         return listaPasajeros;
     }
-    
+
     public List<Vuelo> getlistaVuelos() {
         return listaVuelos;
     }
@@ -247,84 +247,140 @@ public class Datos {
      * @param listaPasajeros1
      */
     public void crearPasajero(List<Pasajero> listaPasajeros1) {
-        Pasajero pasajero = new Pasajero();
-        boolean datosIncorrectos = false;
 
-        do {
-            // Recopilar informacion del pasajero
-            System.out.println("1. Nombre y apellidos: ");
-            String nombreApellidos = sc.nextLine();
-            pasajero.setNombreApellido(nombreApellidos);
+        boolean datosIncorrectos = true;
+        String nombreApellidos = "";
+        String dni = "";
+        String pasaporte = "";
+        String telefono = "";
+        String correo = "";
+        String provincia = "";
+        String pais = "";
+        String contactoEmergencia = "";
+        String fechaNacimiento = "";
 
-            System.out.println("2. DNI: ");
-            String dni = sc.nextLine();
-            pasajero.setDni(dni);
-
-            System.out.println("3. Pasaporte: ");
-            String pasaporte = sc.nextLine();
-            pasajero.setPasaporte(pasaporte);
-
-            System.out.println("4. Telefono: ");
-            String telefono = sc.nextLine();
-            pasajero.setTelefono(telefono);
-
-            System.out.println("5. Correo electronico: ");
-            String correo = sc.nextLine();
-            pasajero.setCorreo(correo);
-
-            System.out.println("6. Provincia: ");
-            String provincia = sc.nextLine();
-            pasajero.setProvincia(provincia);
-
-            System.out.println("7. Pais: ");
-            String pais = sc.nextLine();
-            pasajero.setPais(pais);
-
-            System.out.println("8. Contacto de emergencia: ");
-            String contactoEmergencia = sc.nextLine();
-            pasajero.setContactoDeEmergencia(contactoEmergencia);
-
-            System.out.println("9. Fecha de nacimiento: ");
-            String fechaNacimiento = sc.nextLine();
-            pasajero.setFechaNacimiento(fechaNacimiento);
-
-            // Validar la informacion recopilada
-            if (!Utils.isEmail(pasajero.getCorreo())) {
-                System.out.println("El correo electronico ingresado no es valido.");
-                datosIncorrectos = true;
+        while (datosIncorrectos) {
+            // Recopilar información del pasajero
+            if (nombreApellidos.isEmpty()) {
+                System.out.println("1. Nombre y apellidos: ");
+                nombreApellidos = sc.nextLine();
             }
 
-            if (!Utils.isValidDNI(pasajero.getDni())) {
+            if (Utils.isNumeric(nombreApellidos)) {
+                System.out.println("El nombre y los apellidos no deberian ser numericos");
+                nombreApellidos = ""; // Reiniciar el valor para volver a solicitarlo
+                continue;
+            }
+
+            if (dni.isEmpty()) {
+                System.out.println("2. DNI: ");
+                dni = sc.nextLine();
+            }
+
+            if (!Utils.isValidDNI(dni)) {
                 System.out.println("El DNI ingresado no es valido.");
-                datosIncorrectos = true;
+                dni = ""; // Reiniciar el valor para volver a solicitarlo
+                continue;
             }
 
-            if (!Utils.isNumeric(pasajero.getTelefono())) {
-                System.out.println("El telefono ingresado no es valido.");
-                datosIncorrectos = true;
+            if (pasaporte.isEmpty()) {
+                System.out.println("3. Pasaporte: ");
+                pasaporte = sc.nextLine();
             }
 
-            if (!Utils.isNumeric(pasajero.getContactoDeEmergencia())) {
+            if (telefono.isEmpty()) {
+                System.out.println("4. Telefono: ");
+                telefono = sc.nextLine();
+            }
+
+            if (!Utils.isNumeric(telefono)) {
+                System.out.println("El teléfono ingresado no es valido.");
+                telefono = ""; // Reiniciar el valor para volver a solicitarlo
+                continue;
+            }
+
+            if (correo.isEmpty()) {
+                System.out.println("5. Correo electrónico: ");
+                correo = sc.nextLine();
+            }
+
+            if (!Utils.isEmail(correo)) {
+                System.out.println("El correo electronico ingresado no es valido.");
+                correo = ""; // Reiniciar el valor para volver a solicitarlo
+                continue;
+            }
+
+            if (provincia.isEmpty()) {
+                System.out.println("6. Provincia: ");
+                provincia = sc.nextLine();
+            }
+
+            if (pais.isEmpty()) {
+                System.out.println("7. Pais: ");
+                pais = sc.nextLine();
+            }
+
+            if (contactoEmergencia.isEmpty()) {
+                System.out.println("8. Contacto de emergencia: ");
+                contactoEmergencia = sc.nextLine();
+            }
+
+            if (!Utils.isNumeric(contactoEmergencia)) {
                 System.out.println("El contacto de emergencia ingresado no es valido.");
-                datosIncorrectos = true;
+                contactoEmergencia = ""; // Reiniciar el valor para volver a solicitarlo
+                continue;
             }
+
+            if (fechaNacimiento.isEmpty()) {
+                System.out.println("9. Fecha de nacimiento: ");
+                fechaNacimiento = sc.nextLine();
+            }
+            
+             if (!Utils.isDate(fechaNacimiento)) {
+                System.out.println("Formato icorrecto en la fecha de nacimiento (dd/MM/yyyy).");
+                contactoEmergencia = ""; // Reiniciar el valor para volver a solicitarlo
+                continue;
+            }
+
+            datosIncorrectos = false; // Si se llega hasta aquí, todos los datos son correctos
 
             if (datosIncorrectos) {
                 // Mostrar mensaje de datos incorrectos y repetir el bucle
-                System.out.println("Por favor, ingrese los datos nuevamente. \n");
+                System.out.println("Por favor, ingrese los datos nuevamente.\n");
+                // Reiniciar todas las variables de datos ingresados
+                nombreApellidos = "";
+                dni = "";
+                pasaporte = "";
+                telefono = "";
+                correo = "";
+                provincia = "";
+                pais = "";
+                contactoEmergencia = "";
+                fechaNacimiento = "";
             } else {
-                System.out.println("Pasajero creado correctamente. \n");
+                System.out.println("Pasajero creado correctamente.\n");
             }
 
-            listaPasajeros1.add(pasajero);
-        } while (datosIncorrectos);
+            // Crear objeto pasajero y agregarlo a la lista de pasajeros
+            Pasajero pasajero = new Pasajero();
+            pasajero.setNombreApellido(nombreApellidos);
+            pasajero.setDni(dni);
+            pasajero.setPasaporte(pasaporte);
+            pasajero.setTelefono(telefono);
+            pasajero.setCorreo(correo);
+            pasajero.setProvincia(provincia);
+            pasajero.setPais(pais);
+            pasajero.setContactoDeEmergencia(contactoEmergencia);
+            pasajero.setFechaNacimiento(fechaNacimiento);
 
+            listaPasajeros1.add(pasajero);
+
+        }
     }
 
     public void modificarPasajero(Pasajero pasajero) {
         int opcion = 0;
 
-        
         System.out.println("¿Que quieres modificar?: \n");
         System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
         System.out.println("2 DNI: " + pasajero.getDni());
@@ -336,7 +392,7 @@ public class Datos {
         System.out.println("8 Pais: " + pasajero.getPais());
         System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
         System.out.println("10 Salir: \n");
-        
+
         System.out.print("Ingrese una opcion: ");
 
         opcion = sc.nextInt();
@@ -428,7 +484,6 @@ public class Datos {
     public void modificarVuelo(Vuelo vuelo) {
         int opcion = 0;
 
-        
         System.out.println("¿Que quieres modificar del vuelo?: \n");
         System.out.println("1 Origen del aeropuerto: " + vuelo.getAeropuertoOrigen());
         System.out.println("2 Destino del aeropuerto: " + vuelo.getAeropuertoDestino());
@@ -461,7 +516,7 @@ public class Datos {
                 Destino nuevoDestino = Destino.valueOf(nuevoDestinoStr);
                 vuelo.setAeropuertoDestino(nuevoDestino);
                 break;
-            */
+             */
             case 3:
                 System.out.print("Ingrese la nueva hora de salida del vuelo: ");
                 String nuevaHoraSalida = sc.nextLine();
@@ -516,14 +571,12 @@ public class Datos {
         System.out.println("Datos del pasajero actualizados con exito. \n");
     }
 
-    
-    
     public String[] getListaVuelos() {
         String[] listaVuelosString = new String[listaVuelos.size()];
         int i = 0;
         for (Vuelo vuelo : listaVuelos) {
-            listaVuelosString[i] = vuelo.getId() + " - " + vuelo.getAeropuertoOrigen() + " a " + vuelo.getAeropuertoDestino() + " -Horario: "+ vuelo.getHoraSalida()
-                    + "-" + vuelo.getHoraLlegada() + " Fecha: " + vuelo.getFechaVuelo() +"\n";
+            listaVuelosString[i] = vuelo.getId() + " - " + vuelo.getAeropuertoOrigen() + " a " + vuelo.getAeropuertoDestino() + " -Horario: " + vuelo.getHoraSalida()
+                    + "-" + vuelo.getHoraLlegada() + " Fecha: " + vuelo.getFechaVuelo() + "\n";
             i++;
         }
         return listaVuelosString;
@@ -620,11 +673,11 @@ public class Datos {
 
         return pasajeroByID;
     }
-    
+
     public Vuelo returnVueloObjById(int id) {
 
         Vuelo vueloByID = listaVuelos.stream()
-                .filter(vuelo -> vuelo.getId()== id)
+                .filter(vuelo -> vuelo.getId() == id)
                 .findFirst()
                 .orElse(null);
 
