@@ -126,7 +126,7 @@ public class AirNewAndorra {
 
     static void menuGestor() {
         String[] titulos = {"AirNewAndorra", "2.Gestor"};
-        String[] menuOpciones = {"1.Vuelos", "2.Clases", "3.Origenes", "4.Destinos", "5.Clases Vuelos", "0.Volver \n"};
+        String[] menuOpciones = {"1.Vuelos", "2.Clases", "3.Origenes", "4.Destinos", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
@@ -159,7 +159,7 @@ public class AirNewAndorra {
 
     private static void menuVuelos() {
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Vuelos"};
-        String[] menuOpciones = {"1.Mostrar Vuelos", "2.Crear Vuelo", "3.Seleccionar Vuelo \n"};
+        String[] menuOpciones = {"1.Mostrar Vuelos", "2.Crear Vuelo", "3.Seleccionar Vuelo para modificar", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
@@ -177,15 +177,42 @@ public class AirNewAndorra {
                     ToolsAndMenu.pausa();
                     break;
                 case 3:
-                    //seleccionarVuelos();
+                    seleccionarVuelo();
                     ToolsAndMenu.pausa();
                     break;
             }
         }
     }
+    
+    static void seleccionarVuelo() {
+        String[] titulos = {"AirNewAndorra", "2. Vuelos", "3. Seleccionar Vuelo para modificar", "0.Volver"};
+
+        while (true) {
+            title(titulos);
+            String[] listaStrVuelos = datosPrograma.getListaVuelos();
+            String[] listaStrVuelosActualizada = new String[listaStrVuelos.length + 1];
+            System.arraycopy(listaStrVuelos, 0, listaStrVuelosActualizada, 0, listaStrVuelos.length);
+            listaStrVuelosActualizada[listaStrVuelos.length] = "0 - Volver";
+            int option = menu(listaStrVuelosActualizada);
+            if (option >= 0 && option <= listaStrVuelosActualizada.length - 1) {
+                switch (option) {
+                    case 0:
+                        System.out.println("Volviendo al menú principal \n");
+                        return;
+                    default:
+                        Vuelo vueloSeleccionado = datosPrograma.returnVueloObjById(option);
+                        datosPrograma.modificarVuelo(vueloSeleccionado);
+                        // Haz algo con el pasajero seleccionado
+                        break;
+                }
+            } else {
+                System.out.println("Selección incorrecta. Por favor, elige una opción válida. \n");
+            }
+        }
+    }
 
     static void menuClases() {
-        String[] titulos = {"AirNewAndorra", "2.Gestor", "2.Clases"};
+        String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Clases"};
         String[] menuOpciones = {"1.Mostrar Clases", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
@@ -226,8 +253,8 @@ public class AirNewAndorra {
     }
 
     static void menuOrigenes() {
-        String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Destinos"};
-        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver \n"};
+        String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Origenes"};
+        String[] menuOpciones = {"1.Mostrar Origenes", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);

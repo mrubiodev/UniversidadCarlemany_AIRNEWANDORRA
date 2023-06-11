@@ -35,6 +35,10 @@ public class Datos {
     public List<Pasajero> getListaPasajeros() {
         return listaPasajeros;
     }
+    
+    public List<Vuelo> getlistaVuelos() {
+        return listaVuelos;
+    }
 
     private void crearClasesVuelos() {
         ClaseVuelo clase1 = new ClaseVuelo(1, Clases.ECONOMIC, 100, 50);
@@ -165,7 +169,7 @@ public class Datos {
             System.out.println("Orígenes disponibles: ");
             MostrarOrigenes();
 
-            System.out.println("Aeropuesto de origen: ");
+            System.out.println("Selecciona un aeropuesto de origen: ");
             int opcionOrigen = sc.nextInt();
 
             Origen origen = listaOrigenes.get(opcionOrigen - 1);
@@ -173,7 +177,7 @@ public class Datos {
             System.out.println("Destinos disponibles: ");
             MostrarDestinos();
 
-            System.out.println("Aeropuesto de destino: ");
+            System.out.println("Selecciona un aeropuesto de destino: ");
             int opcionDestino = sc.nextInt();
 
             sc.nextLine(); //limpiamos
@@ -186,7 +190,7 @@ public class Datos {
             System.out.println("Hora llegada: ");
             String llegada = sc.nextLine();
 
-            System.out.println("Duración: ");
+            System.out.println("Duración (min): ");
             double duracion = sc.nextDouble();
 
             sc.nextLine(); //limpiamos
@@ -195,7 +199,7 @@ public class Datos {
             String fechaVuelo = sc.nextLine();
 
             MostrarTiposAvion();
-            System.out.println("Tipo de avión: ");
+            System.out.println("Selecciona un tipo de avión: ");
             int tipoAvion = sc.nextInt();
             TipoAvion tipo = TipoAvion.values()[tipoAvion - 1];
 
@@ -248,7 +252,7 @@ public class Datos {
 
         do {
             // Recopilar información del pasajero
-            System.out.println("1 Nombre y apellidos: ");
+            System.out.println("1. Nombre y apellidos: ");
             String nombreApellidos = sc.nextLine();
             pasajero.setNombreApellido(nombreApellidos);
 
@@ -331,7 +335,8 @@ public class Datos {
         System.out.println("7 Provincia: " + pasajero.getProvincia());
         System.out.println("8 País: " + pasajero.getPais());
         System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
-        System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia() + "\n");
+        System.out.println("10 Salir: \n");
+        
         System.out.print("Ingrese una opción: ");
 
         opcion = sc.nextInt();
@@ -342,63 +347,54 @@ public class Datos {
                 System.out.print("Ingrese el nuevo nombre y apellidos del pasajero: ");
                 String nuevoNombre = sc.nextLine();
                 pasajero.setNombreApellido(nuevoNombre);
-
                 break;
 
             case 2:
                 System.out.print("Ingrese el nuevo DNI del pasajero: ");
                 String nuevoDNI = sc.nextLine();
                 pasajero.setDni(nuevoDNI);
-
                 break;
 
             case 3:
                 System.out.print("Ingrese el nuevo pasaporte del pasajero: ");
                 String nuevoPasaporte = sc.nextLine();
                 pasajero.setPasaporte(nuevoPasaporte);
-
                 break;
 
             case 4:
                 System.out.print("Ingrese la nueva fecha de nacimiento del pasajero: ");
                 String nuevaFechaNacimiento = sc.nextLine();
                 pasajero.setFechaNacimiento(nuevaFechaNacimiento);
-
                 break;
 
             case 5:
                 System.out.print("Ingrese el nuevo teléfono del pasajero: ");
                 String nuevoTelefono = sc.nextLine();
                 pasajero.setTelefono(nuevoTelefono);
-
                 break;
 
             case 6:
                 System.out.print("Ingrese el nuevo correo: ");
                 String nuevoCorreo = sc.nextLine();
                 pasajero.setCorreo(nuevoCorreo);
-
                 break;
 
             case 7:
                 System.out.print("Ingrese la nueva provincia del pasajero: ");
                 String nuevaProvincia = sc.nextLine();
                 pasajero.setProvincia(nuevaProvincia);
-
                 break;
 
             case 8:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoPais = sc.nextLine();
                 pasajero.setPais(nuevoPais);
-
                 break;
 
             case 9:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoContactoDeEmergencia = sc.nextLine();
                 pasajero.setContactoDeEmergencia(nuevoContactoDeEmergencia);
-
                 break;
 
             case 10:
@@ -429,8 +425,108 @@ public class Datos {
 
     }
 
-    public List<Vuelo> getlistaVuelos() {
-        return listaVuelos;
+    public void modificarVuelo(Vuelo vuelo) {
+        int opcion = 0;
+
+        
+        System.out.println("¿Qué quieres modificar del vuelo?: \n");
+        System.out.println("1 Origen del aeropuerto: " + vuelo.getAeropuertoOrigen());
+        System.out.println("2 Destino del aeropuerto: " + vuelo.getAeropuertoDestino());
+        System.out.println("3 Hora de salida: " + vuelo.getHoraSalida());
+        System.out.println("4 Hora de llegada: " + vuelo.getHoraLlegada());
+        System.out.println("5 Duración: " + vuelo.getDuracion());
+        System.out.println("6 Fecha del vuelo: " + vuelo.getFechaVuelo());
+        System.out.println("7 Tipo de avión: " + vuelo.getTipoAvion());
+        System.out.println("8 Número máximo de pasajeros: " + vuelo.getNumMaxPasajeros());
+        System.out.println("9 Número mínimo de pasajeros: " + vuelo.getNumMinPasajeros());
+        System.out.println("10 Salir: \n");
+
+        System.out.print("Ingrese una opción: ");
+
+        opcion = sc.nextInt();
+        sc.nextLine();
+
+        switch (opcion) {
+            /*
+            case 1:
+                System.out.print("Ingrese el nuevo origen del vuelo: ");
+                String nuevoOrigenStr = sc.nextLine();
+                Origen nuevoOrigen = Origen.valueOf(nuevoOrigenStr);
+                vuelo.setAeropuertoOrigen(nuevoOrigen);
+                break;
+
+            case 2:
+                System.out.print("Ingrese el nuevo destino del vuelo: ");
+                String nuevoDestinoStr = sc.nextLine();
+                Destino nuevoDestino = Destino.valueOf(nuevoDestinoStr);
+                vuelo.setAeropuertoDestino(nuevoDestino);
+                break;
+            */
+            case 3:
+                System.out.print("Ingrese la nueva hora de salida del vuelo: ");
+                String nuevaHoraSalida = sc.nextLine();
+                vuelo.setHoraSalida(nuevaHoraSalida);
+                break;
+
+            case 4:
+                System.out.print("Ingrese la nueva hora de llegada del vuelo: ");
+                String nuevaHoraLlegada = sc.nextLine();
+                vuelo.setHoraLlegada(nuevaHoraLlegada);
+                break;
+
+            case 5:
+                System.out.print("Ingrese la nueva duración del vuelo: ");
+                Double nuevaDuracion = sc.nextDouble();
+                vuelo.setDuracion(nuevaDuracion);
+                break;
+
+            case 6:
+                System.out.print("Ingrese la nueva fecha del vuelo: ");
+                String nuevaFecha = sc.nextLine();
+                vuelo.setFechaVuelo(nuevaFecha);
+                break;
+
+            case 7:
+                System.out.print("Ingrese el nuevo tipo del vuelo: ");
+                String nuevoTipoAvionStr = sc.nextLine();
+                TipoAvion nuevoTipoAvion = TipoAvion.valueOf(nuevoTipoAvionStr);
+                vuelo.setTipoAvion(nuevoTipoAvion);
+                break;
+
+            case 8:
+                System.out.print("Ingrese el nuevo número máximo de pasajeros del vuelo: ");
+                int nuevoNumMaxPasajeros = sc.nextInt();
+                vuelo.setNumMaxPasajeros(nuevoNumMaxPasajeros);
+                break;
+
+            case 9:
+                System.out.print("Ingrese el nuevo número mínimo de pasajeros del vuelo: ");
+                int nuevoNumMinPasajeros = sc.nextInt();
+                vuelo.setNumMinPasajeros(nuevoNumMinPasajeros);
+                break;
+
+            case 10:
+                System.out.print("Ha seleccionado 'Salir' \n");
+                break;
+
+            default:
+                System.out.print("Opción no válida. Inténtelo de nuevo \n");
+
+        }
+        System.out.println("Datos del pasajero actualizados con éxito. \n");
+    }
+
+    
+    
+    public String[] getListaVuelos() {
+        String[] listaVuelosString = new String[listaVuelos.size()];
+        int i = 0;
+        for (Vuelo vuelo : listaVuelos) {
+            listaVuelosString[i] = vuelo.getId() + " - " + vuelo.getAeropuertoOrigen() + " a " + vuelo.getAeropuertoDestino() + " -Horario: "+ vuelo.getHoraSalida()
+                    + "-" + vuelo.getHoraLlegada() + " Fecha: " + vuelo.getFechaVuelo() +"\n";
+            i++;
+        }
+        return listaVuelosString;
     }
 
     public void crearReserva(Pasajero pasajeroSeleccionado) {
@@ -524,6 +620,16 @@ public class Datos {
 
         return pasajeroByID;
     }
+    
+    public Vuelo returnVueloObjById(int id) {
+
+        Vuelo vueloByID = listaVuelos.stream()
+                .filter(vuelo -> vuelo.getId()== id)
+                .findFirst()
+                .orElse(null);
+
+        return vueloByID;
+    }
 
     public void listaReservasPasajero(Pasajero pasajeroSeleccionado) {
         List<Reserva> reservasDelPasajero = listaReservas.stream()
@@ -531,7 +637,7 @@ public class Datos {
                 .collect(Collectors.toList());
 
         if (reservasDelPasajero.isEmpty()) {
-            System.out.println("El pasajero " + pasajeroSeleccionado.getNombreApellido() + " no tiene reservas.");
+            System.out.println("El pasajero " + pasajeroSeleccionado.getNombreApellido() + " no tiene reservas. \n");
             return;
         }
 
