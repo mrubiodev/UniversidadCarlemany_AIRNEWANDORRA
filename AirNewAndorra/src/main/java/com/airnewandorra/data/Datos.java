@@ -278,7 +278,7 @@ public class Datos {
             }
 
             if (!Utils.isValidDNI(dni)) {
-                System.out.println("El DNI ingresado no es valido.");
+                System.out.println("El DNI ingresado no es valido (11111111-X).");
                 dni = ""; // Reiniciar el valor para volver a solicitarlo
                 continue;
             }
