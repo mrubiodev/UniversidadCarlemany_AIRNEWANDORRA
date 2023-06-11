@@ -8,7 +8,6 @@ import static com.libraryMenuTools.ToolsAndMenu.title;
 
 import com.airnewandorra.data.Datos;
 
-
 public class AirNewAndorra {
 
     public static Datos datosPrograma;
@@ -64,15 +63,16 @@ public class AirNewAndorra {
             }
         }
     }
-    
+
     static void selectPasajero() {
-        String[] titulos = { "AirNewAndorra", "1. Cliente", "2. Seleccionar Pasajero", "0.Volver" };
-        String[] listaStrPasajeros = datosPrograma.getlistaPasajeros();
-        String[] listaStrPasajerosActualizada = new String[listaStrPasajeros.length + 1];
-        System.arraycopy(listaStrPasajeros, 0, listaStrPasajerosActualizada, 0, listaStrPasajeros.length);
-        listaStrPasajerosActualizada[listaStrPasajeros.length] = "0 - Volver";
+        String[] titulos = {"AirNewAndorra", "1. Cliente", "2. Seleccionar Pasajero", "0.Volver"};
+
         while (true) {
             title(titulos);
+            String[] listaStrPasajeros = datosPrograma.getlistaPasajeros();
+            String[] listaStrPasajerosActualizada = new String[listaStrPasajeros.length + 1];
+            System.arraycopy(listaStrPasajeros, 0, listaStrPasajerosActualizada, 0, listaStrPasajeros.length);
+            listaStrPasajerosActualizada[listaStrPasajeros.length] = "0 - Volver";
             int option = menu(listaStrPasajerosActualizada);
             if (option >= 0 && option <= listaStrPasajerosActualizada.length - 1) {
                 switch (option) {
@@ -91,11 +91,11 @@ public class AirNewAndorra {
         }
     }
 
-    
     static void menuPasajeroSeleccionado(Pasajero pasajeroSeleccionado) {
-        String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Ver lista de Pasajeros", "3.Seleccionar pasajero"};
-        String[] menuOpciones = {"1.Modificar", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver \n"};
+        String[] titulos = {"AirNewAndorra", "1.Crear Pasajero", "2.Ver lista de Pasajeros", "3." + pasajeroSeleccionado.getNombreApellido()};
+        String[] menuOpciones = {"1.Modificar", "2.Crear Reserva", "3.Ver lista de Reservas", "4.Modificar Reserva", "0.Volver"};
         while (true) {  //Bucle infinito
+            titulos[3] = "3." + pasajeroSeleccionado.getNombreApellido(); // Actualizar el título con el nombre actualizado
             title(titulos);
             int option = menu(menuOpciones);
             switch (option) {

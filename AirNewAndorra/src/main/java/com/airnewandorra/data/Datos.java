@@ -150,7 +150,7 @@ public class Datos {
             System.out.println("Fecha de vuelo: " + vuelo.getFechaVuelo());
             System.out.println("Tipo de avión: " + vuelo.getTipoAvion());
             System.out.println("Número máximo de pasajeros: " + vuelo.getNumMaxPasajeros());
-            System.out.println("Número mínimo de pasajeros: " + vuelo.getNumMinPasajeros()+ "\n");
+            System.out.println("Número mínimo de pasajeros: " + vuelo.getNumMinPasajeros() + "\n");
 
         }
     }
@@ -320,6 +320,7 @@ public class Datos {
     public void modificarPasajero(Pasajero pasajero) {
         int opcion = 0;
 
+        
         System.out.println("¿Qué quieres modificar?: \n");
         System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
         System.out.println("2 DNI: " + pasajero.getDni());
@@ -330,16 +331,16 @@ public class Datos {
         System.out.println("7 Provincia: " + pasajero.getProvincia());
         System.out.println("8 País: " + pasajero.getPais());
         System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
-        System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia()+ "\n");
+        System.out.println("10 Salir: " + pasajero.getContactoDeEmergencia() + "\n");
         System.out.print("Ingrese una opción: ");
 
         opcion = sc.nextInt();
+        sc.nextLine();
 
         switch (opcion) {
             case 1:
                 System.out.print("Ingrese el nuevo nombre y apellidos del pasajero: ");
                 String nuevoNombre = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setNombreApellido(nuevoNombre);
 
                 break;
@@ -347,7 +348,6 @@ public class Datos {
             case 2:
                 System.out.print("Ingrese el nuevo DNI del pasajero: ");
                 String nuevoDNI = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setDni(nuevoDNI);
 
                 break;
@@ -355,7 +355,6 @@ public class Datos {
             case 3:
                 System.out.print("Ingrese el nuevo pasaporte del pasajero: ");
                 String nuevoPasaporte = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setPasaporte(nuevoPasaporte);
 
                 break;
@@ -363,7 +362,6 @@ public class Datos {
             case 4:
                 System.out.print("Ingrese la nueva fecha de nacimiento del pasajero: ");
                 String nuevaFechaNacimiento = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setFechaNacimiento(nuevaFechaNacimiento);
 
                 break;
@@ -371,7 +369,6 @@ public class Datos {
             case 5:
                 System.out.print("Ingrese el nuevo teléfono del pasajero: ");
                 String nuevoTelefono = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setTelefono(nuevoTelefono);
 
                 break;
@@ -379,7 +376,6 @@ public class Datos {
             case 6:
                 System.out.print("Ingrese el nuevo correo: ");
                 String nuevoCorreo = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setCorreo(nuevoCorreo);
 
                 break;
@@ -387,7 +383,6 @@ public class Datos {
             case 7:
                 System.out.print("Ingrese la nueva provincia del pasajero: ");
                 String nuevaProvincia = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setProvincia(nuevaProvincia);
 
                 break;
@@ -395,7 +390,6 @@ public class Datos {
             case 8:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoPais = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setPais(nuevoPais);
 
                 break;
@@ -403,7 +397,6 @@ public class Datos {
             case 9:
                 System.out.print("Ingrese el nuevo pais: ");
                 String nuevoContactoDeEmergencia = sc.nextLine();
-                sc.nextLine(); // Limpia el buffer
                 pasajero.setContactoDeEmergencia(nuevoContactoDeEmergencia);
 
                 break;
@@ -431,7 +424,7 @@ public class Datos {
             System.out.println("6 Email: " + pasajero.getCorreo());
             System.out.println("7 Provincia: " + pasajero.getProvincia());
             System.out.println("8 País: " + pasajero.getPais());
-            System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia()+ "\n");
+            System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia() + "\n");
         }
 
     }
@@ -548,7 +541,7 @@ public class Datos {
             System.out.println("Equipaje: " + reserva.getEquipaje().name());
             System.out.println("Estado: " + reserva.getEstado().name());
             System.out.println("Mascota: " + (reserva.isMascota() ? "Sí" : "No"));
-            System.out.println("Clase de reserva: " + reserva.getClaseVuelo().getClase() +"\n");
+            System.out.println("Clase de reserva: " + reserva.getClaseVuelo().getClase() + "\n");
 
         }
     }
