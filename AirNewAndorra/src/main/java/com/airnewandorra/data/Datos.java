@@ -169,10 +169,10 @@ public class Datos {
             System.out.println("Origenes disponibles: ");
             MostrarOrigenes();
 
-            System.out.println("Selecciona un aeropuesto de origen: ");
+            System.out.println("Selecciona un aeropuerto de origen: ");
             int opcionOrigen = sc.nextInt();
 
-            while (opcionOrigen == 0 || opcionOrigen > listaOrigenes.size() - 1) {
+            while (opcionOrigen == 0 || opcionOrigen > listaOrigenes.size()) {
                 System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaOrigenes.size()));
                 System.out.println("Selecciona un aeropuesto de origen: ");
                 opcionOrigen = sc.nextInt();
@@ -183,10 +183,10 @@ public class Datos {
             System.out.println("Destinos disponibles: ");
             MostrarDestinos();
 
-            System.out.println("Selecciona un aeropuesto de destino: ");
+            System.out.println("Selecciona un aeropuerto de destino: ");
             int opcionDestino = sc.nextInt();
 
-            while (opcionDestino == 0 || opcionDestino > listaDestinos.size() - 1) {
+            while (opcionDestino == 0 || opcionDestino > listaDestinos.size()) {
                 System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaDestinos.size()));
                 System.out.println("Selecciona un aeropuerto de destino: ");
                 opcionDestino = sc.nextInt();
@@ -521,7 +521,7 @@ public class Datos {
                 MostrarOrigenes();
                 int opcionOrigen = sc.nextInt();
 
-                while (opcionOrigen == 0 || opcionOrigen > listaOrigenes.size() - 1) {
+                while (opcionOrigen == 0 || opcionOrigen > listaOrigenes.size()) {
                     System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaOrigenes.size()));
                     System.out.println("Selecciona un aeropuerto de origen: ");
                     opcionOrigen = sc.nextInt();
@@ -537,7 +537,7 @@ public class Datos {
                 MostrarDestinos();
                 int opcionDestino = sc.nextInt();
 
-                while (opcionDestino == 0 || opcionDestino > listaDestinos.size() - 1) {
+                while (opcionDestino == 0 || opcionDestino > listaDestinos.size()) {
                     System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaDestinos.size()));
                     System.out.println("Selecciona un aeropuerto de destino: ");
                     opcionDestino = sc.nextInt();
