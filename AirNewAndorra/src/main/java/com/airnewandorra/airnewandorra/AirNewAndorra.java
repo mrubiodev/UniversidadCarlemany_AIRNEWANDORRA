@@ -225,7 +225,7 @@ public class AirNewAndorra {
 
     static void menuDestinos() {
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Destinos"};
-        String[] menuOpciones = {"1.Mostrar Destinos", "0.Volver \n"};
+        String[] menuOpciones = {"1.Mostrar Destinos","2.Crear Destino", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
@@ -238,13 +238,17 @@ public class AirNewAndorra {
                     datosPrograma.MostrarDestinos();
                     ToolsAndMenu.pausa();
                     return;
+                case 2:
+                    datosPrograma.nuevoDestino();
+                    ToolsAndMenu.pausa();
+                    return;
             }
         }
     }
 
     static void menuOrigenes() {
         String[] titulos = {"AirNewAndorra", "2.Gestor", "3.Origenes"};
-        String[] menuOpciones = {"1.Mostrar Origenes", "0.Volver \n"};
+        String[] menuOpciones = {"1.Mostrar Origenes","2.Crear Origen", "0.Volver \n"};
         while (true) {  //Bucle infinito
             title(titulos);
             int option = menu(menuOpciones);
@@ -255,6 +259,10 @@ public class AirNewAndorra {
                 //break;
                 case 1:
                     datosPrograma.MostrarOrigenes();
+                    ToolsAndMenu.pausa();
+                    return;
+                case 2:
+                    datosPrograma.nuevoOrigen();
                     ToolsAndMenu.pausa();
                     return;
             }

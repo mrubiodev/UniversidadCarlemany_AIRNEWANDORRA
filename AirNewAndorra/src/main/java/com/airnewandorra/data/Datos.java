@@ -129,6 +129,22 @@ public class Datos {
     public void nuevoPasajero(Pasajero nuevoPasajero) {
         listaPasajeros.add(nuevoPasajero);
     }
+    
+    public void nuevoOrigen() {
+        System.out.println("Ingrese el nombre del nuevo origen:");
+        String nombreOrigen = sc.nextLine();
+        Origen nuevoOrigen = new Origen(nombreOrigen);
+        listaOrigenes.add(nuevoOrigen);
+        System.out.println("Origen agregado con exito.");
+    }
+    
+    public void nuevoDestino() {
+        System.out.println("Ingrese el nombre del nuevo destino:");
+        String nombreDestino = sc.nextLine();
+        Destino nuevoDestino = new Destino(nombreDestino);
+        listaDestinos.add(nuevoDestino);
+        System.out.println("Destino agregado con exito.");
+    }
 
     /**
      * Este metodo devuelve la lista de pasajeros en una array de String con
