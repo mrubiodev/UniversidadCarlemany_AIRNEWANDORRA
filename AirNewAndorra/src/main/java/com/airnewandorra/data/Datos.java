@@ -11,7 +11,7 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /**
- * Esta clase crea los datos iniciales de la aplicación.
+ * Esta clase crea los datos iniciales de la aplicacion.
  *
  * @author minak
  */
@@ -79,7 +79,7 @@ public class Datos {
     }
 
     /**
-     * Este método devuelve la lista de destinos en una array de String con
+     * Este metodo devuelve la lista de destinos en una array de String con
      * formato "ID - Nombre del destino"
      */
     public void MostrarDestinos() {
@@ -103,7 +103,7 @@ public class Datos {
     }
 
     /**
-     * Este método devuelve la lista de clases en una array de String con
+     * Este metodo devuelve la lista de clases en una array de String con
      * formato "ID - Nombre de la clase"
      */
     public void MostrarClases() {
@@ -113,7 +113,7 @@ public class Datos {
     }
 
     /**
-     * Este método dado un nuevo pasajero y lo añade a la lista de pasajeros
+     * Este metodo dado un nuevo pasajero y lo añade a la lista de pasajeros
      *
      * @param nuevoPasajero
      */
@@ -122,7 +122,7 @@ public class Datos {
     }
 
     /**
-     * Este método devuelve la lista de pasajeros en una array de String con
+     * Este metodo devuelve la lista de pasajeros en una array de String con
      * formato "ID - Nombre Apellido"
      *
      * @return
@@ -150,11 +150,11 @@ public class Datos {
             System.out.println("Aeropuerto de destino: " + vuelo.getAeropuertoDestino());
             System.out.println("Hora de salida: " + vuelo.getHoraSalida());
             System.out.println("Hora de llegada: " + vuelo.getHoraLlegada());
-            System.out.println("Duración: " + vuelo.getDuracion() + " minutos");
+            System.out.println("Duracion: " + vuelo.getDuracion() + " minutos");
             System.out.println("Fecha de vuelo: " + vuelo.getFechaVuelo());
-            System.out.println("Tipo de avión: " + vuelo.getTipoAvion());
-            System.out.println("Número máximo de pasajeros: " + vuelo.getNumMaxPasajeros());
-            System.out.println("Número mínimo de pasajeros: " + vuelo.getNumMinPasajeros() + "\n");
+            System.out.println("Tipo de avion: " + vuelo.getTipoAvion());
+            System.out.println("Nimero maximo de pasajeros: " + vuelo.getNumMaxPasajeros());
+            System.out.println("Nimero minimo de pasajeros: " + vuelo.getNumMinPasajeros() + "\n");
 
         }
     }
@@ -166,7 +166,7 @@ public class Datos {
         Vuelo vuelo = new Vuelo();
         boolean datosIncorrectos = false;
         do {
-            System.out.println("Orígenes disponibles: ");
+            System.out.println("Origenes disponibles: ");
             MostrarOrigenes();
 
             System.out.println("Selecciona un aeropuesto de origen: ");
@@ -190,7 +190,7 @@ public class Datos {
             System.out.println("Hora llegada: ");
             String llegada = sc.nextLine();
 
-            System.out.println("Duración (min): ");
+            System.out.println("Duracion (min): ");
             double duracion = sc.nextDouble();
 
             sc.nextLine(); //limpiamos
@@ -199,14 +199,14 @@ public class Datos {
             String fechaVuelo = sc.nextLine();
 
             MostrarTiposAvion();
-            System.out.println("Selecciona un tipo de avión: ");
+            System.out.println("Selecciona un tipo de avion: ");
             int tipoAvion = sc.nextInt();
             TipoAvion tipo = TipoAvion.values()[tipoAvion - 1];
 
-            System.out.println("Número máximo de pasajeros: ");
+            System.out.println("Nimero maximo de pasajeros: ");
             int numMax = sc.nextInt();
 
-            System.out.println("Número mínimo de pasajeros: ");
+            System.out.println("Nimero minimo de pasajeros: ");
             int numMin = sc.nextInt();
 
             vuelo.setTipoAvion(tipo);
@@ -219,21 +219,21 @@ public class Datos {
             vuelo.setNumMaxPasajeros(numMax);
             vuelo.setNumMinPasajeros(numMin);
 
-            // Validar la información ingresada utilizando los métodos de Utils
+            // Validar la informacion ingresada utilizando los metodos de Utils
             if (!Utils.isDate(vuelo.getFechaVuelo())) {
-                System.out.println("La fecha de vuelo ingresada no es válida.");
+                System.out.println("La fecha de vuelo ingresada no es valida.");
                 datosIncorrectos = true;
             } else if (!Utils.isNumeric(Double.toString(vuelo.getDuracion()))) {
-                System.out.println("La duración ingresada no es válida.");
+                System.out.println("La duracion ingresada no es valida.");
                 datosIncorrectos = true;
             } else if (!vuelo.getHoraSalida().contains(":")) {
-                System.out.println("La hora de salida ingresada no es válida.");
+                System.out.println("La hora de salida ingresada no es valida.");
                 datosIncorrectos = true;
             } else if (!vuelo.getHoraLlegada().contains(":")) {
-                System.out.println("La hora de llegada ingresada no es válida.");
+                System.out.println("La hora de llegada ingresada no es valida.");
                 datosIncorrectos = true;
             } else {
-                datosIncorrectos = false;  // Todos los datos son válidos, salimos del bucle
+                datosIncorrectos = false;  // Todos los datos son validos, salimos del bucle
             }
 
             System.out.println("Vuelo creado correctamente. \n");
@@ -251,7 +251,7 @@ public class Datos {
         boolean datosIncorrectos = false;
 
         do {
-            // Recopilar información del pasajero
+            // Recopilar informacion del pasajero
             System.out.println("1. Nombre y apellidos: ");
             String nombreApellidos = sc.nextLine();
             pasajero.setNombreApellido(nombreApellidos);
@@ -264,11 +264,11 @@ public class Datos {
             String pasaporte = sc.nextLine();
             pasajero.setPasaporte(pasaporte);
 
-            System.out.println("4. Teléfono: ");
+            System.out.println("4. Telefono: ");
             String telefono = sc.nextLine();
             pasajero.setTelefono(telefono);
 
-            System.out.println("5. Correo electrónico: ");
+            System.out.println("5. Correo electronico: ");
             String correo = sc.nextLine();
             pasajero.setCorreo(correo);
 
@@ -276,7 +276,7 @@ public class Datos {
             String provincia = sc.nextLine();
             pasajero.setProvincia(provincia);
 
-            System.out.println("7. País: ");
+            System.out.println("7. Pais: ");
             String pais = sc.nextLine();
             pasajero.setPais(pais);
 
@@ -288,24 +288,24 @@ public class Datos {
             String fechaNacimiento = sc.nextLine();
             pasajero.setFechaNacimiento(fechaNacimiento);
 
-            // Validar la información recopilada
+            // Validar la informacion recopilada
             if (!Utils.isEmail(pasajero.getCorreo())) {
-                System.out.println("El correo electrónico ingresado no es válido.");
+                System.out.println("El correo electronico ingresado no es valido.");
                 datosIncorrectos = true;
             }
 
             if (!Utils.isValidDNI(pasajero.getDni())) {
-                System.out.println("El DNI ingresado no es válido.");
+                System.out.println("El DNI ingresado no es valido.");
                 datosIncorrectos = true;
             }
 
             if (!Utils.isNumeric(pasajero.getTelefono())) {
-                System.out.println("El teléfono ingresado no es válido.");
+                System.out.println("El telefono ingresado no es valido.");
                 datosIncorrectos = true;
             }
 
             if (!Utils.isNumeric(pasajero.getContactoDeEmergencia())) {
-                System.out.println("El contacto de emergencia ingresado no es válido.");
+                System.out.println("El contacto de emergencia ingresado no es valido.");
                 datosIncorrectos = true;
             }
 
@@ -325,19 +325,19 @@ public class Datos {
         int opcion = 0;
 
         
-        System.out.println("¿Qué quieres modificar?: \n");
+        System.out.println("¿Que quieres modificar?: \n");
         System.out.println("1 Nombre y apellidos: " + pasajero.getNombreApellido());
         System.out.println("2 DNI: " + pasajero.getDni());
         System.out.println("3 Pasaporte: " + pasajero.getPasaporte());
         System.out.println("4 Fecha de nacimiento: " + pasajero.getFechaNacimiento());
-        System.out.println("5 Teléfono: " + pasajero.getTelefono());
+        System.out.println("5 Telefono: " + pasajero.getTelefono());
         System.out.println("6 Email: " + pasajero.getCorreo());
         System.out.println("7 Provincia: " + pasajero.getProvincia());
-        System.out.println("8 País: " + pasajero.getPais());
+        System.out.println("8 Pais: " + pasajero.getPais());
         System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia());
         System.out.println("10 Salir: \n");
         
-        System.out.print("Ingrese una opción: ");
+        System.out.print("Ingrese una opcion: ");
 
         opcion = sc.nextInt();
         sc.nextLine();
@@ -368,7 +368,7 @@ public class Datos {
                 break;
 
             case 5:
-                System.out.print("Ingrese el nuevo teléfono del pasajero: ");
+                System.out.print("Ingrese el nuevo telefono del pasajero: ");
                 String nuevoTelefono = sc.nextLine();
                 pasajero.setTelefono(nuevoTelefono);
                 break;
@@ -402,10 +402,10 @@ public class Datos {
                 break;
 
             default:
-                System.out.print("Opción no válida. Inténtelo de nuevo \n");
+                System.out.print("Opcion no valida. Intentelo de nuevo \n");
 
         }
-        System.out.println("Datos del pasajero actualizados con éxito. \n");
+        System.out.println("Datos del pasajero actualizados con exito. \n");
     }
 
     public void mostrarPasajeros(List<Pasajero> mostrarListaPasajeros) {
@@ -416,10 +416,10 @@ public class Datos {
             System.out.println("2 DNI: " + pasajero.getDni());
             System.out.println("3 Pasaporte: " + pasajero.getPasaporte());
             System.out.println("4 Fecha de nacimiento: " + pasajero.getFechaNacimiento());
-            System.out.println("5 Teléfono: " + pasajero.getTelefono());
+            System.out.println("5 Telefono: " + pasajero.getTelefono());
             System.out.println("6 Email: " + pasajero.getCorreo());
             System.out.println("7 Provincia: " + pasajero.getProvincia());
-            System.out.println("8 País: " + pasajero.getPais());
+            System.out.println("8 Pais: " + pasajero.getPais());
             System.out.println("9 Contacto de emergencia: " + pasajero.getContactoDeEmergencia() + "\n");
         }
 
@@ -429,19 +429,19 @@ public class Datos {
         int opcion = 0;
 
         
-        System.out.println("¿Qué quieres modificar del vuelo?: \n");
+        System.out.println("¿Que quieres modificar del vuelo?: \n");
         System.out.println("1 Origen del aeropuerto: " + vuelo.getAeropuertoOrigen());
         System.out.println("2 Destino del aeropuerto: " + vuelo.getAeropuertoDestino());
         System.out.println("3 Hora de salida: " + vuelo.getHoraSalida());
         System.out.println("4 Hora de llegada: " + vuelo.getHoraLlegada());
-        System.out.println("5 Duración: " + vuelo.getDuracion());
+        System.out.println("5 Duracion: " + vuelo.getDuracion());
         System.out.println("6 Fecha del vuelo: " + vuelo.getFechaVuelo());
-        System.out.println("7 Tipo de avión: " + vuelo.getTipoAvion());
-        System.out.println("8 Número máximo de pasajeros: " + vuelo.getNumMaxPasajeros());
-        System.out.println("9 Número mínimo de pasajeros: " + vuelo.getNumMinPasajeros());
+        System.out.println("7 Tipo de avion: " + vuelo.getTipoAvion());
+        System.out.println("8 Nimero maximo de pasajeros: " + vuelo.getNumMaxPasajeros());
+        System.out.println("9 Nimero minimo de pasajeros: " + vuelo.getNumMinPasajeros());
         System.out.println("10 Salir: \n");
 
-        System.out.print("Ingrese una opción: ");
+        System.out.print("Ingrese una opcion: ");
 
         opcion = sc.nextInt();
         sc.nextLine();
@@ -475,7 +475,7 @@ public class Datos {
                 break;
 
             case 5:
-                System.out.print("Ingrese la nueva duración del vuelo: ");
+                System.out.print("Ingrese la nueva duracion del vuelo: ");
                 Double nuevaDuracion = sc.nextDouble();
                 vuelo.setDuracion(nuevaDuracion);
                 break;
@@ -494,13 +494,13 @@ public class Datos {
                 break;
 
             case 8:
-                System.out.print("Ingrese el nuevo número máximo de pasajeros del vuelo: ");
+                System.out.print("Ingrese el nuevo nimero maximo de pasajeros del vuelo: ");
                 int nuevoNumMaxPasajeros = sc.nextInt();
                 vuelo.setNumMaxPasajeros(nuevoNumMaxPasajeros);
                 break;
 
             case 9:
-                System.out.print("Ingrese el nuevo número mínimo de pasajeros del vuelo: ");
+                System.out.print("Ingrese el nuevo nimero minimo de pasajeros del vuelo: ");
                 int nuevoNumMinPasajeros = sc.nextInt();
                 vuelo.setNumMinPasajeros(nuevoNumMinPasajeros);
                 break;
@@ -510,10 +510,10 @@ public class Datos {
                 break;
 
             default:
-                System.out.print("Opción no válida. Inténtelo de nuevo \n");
+                System.out.print("Opcion no valida. Intentelo de nuevo \n");
 
         }
-        System.out.println("Datos del pasajero actualizados con éxito. \n");
+        System.out.println("Datos del pasajero actualizados con exito. \n");
     }
 
     
@@ -532,18 +532,18 @@ public class Datos {
     public void crearReserva(Pasajero pasajeroSeleccionado) {
         Reserva reserva = new Reserva();
 
-        // Recopilar información de la reserva
+        // Recopilar informacion de la reserva
         int lastId = listaPasajeros.get(listaPasajeros.size() - 1).getID();
         reserva.setId(lastId + 1);
 
         System.out.println("2. Datos del vuelo: ");
-        // Aquí deberías tener la lógica para recopilar los datos del vuelo
+        // Aqui deberias tener la logica para recopilar los datos del vuelo
 
         System.out.println("3. Clase de vuelo: ");
-        String tipoClasevuelo = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
+        String tipoClasevuelo = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayisculas
         Clases tipoClase;
 
-        // Validar la opción ingresada y asignar el tipo de clase de vuelo correspondiente
+        // Validar la opcion ingresada y asignar el tipo de clase de vuelo correspondiente
         if (tipoClasevuelo.equals("ECONOMIC")) {
             tipoClase = Clases.ECONOMIC;
         } else if (tipoClasevuelo.equals("BUSINESS")) {
@@ -551,7 +551,7 @@ public class Datos {
         } else if (tipoClasevuelo.equals("FIRST")) {
             tipoClase = Clases.FIRST;
         } else {
-            System.out.println("La opción ingresada no es válida. Se asignará el tipo de equipaje 'ECONOMIC' por defecto.");
+            System.out.println("La opcion ingresada no es valida. Se asignara el tipo de equipaje 'ECONOMIC' por defecto.");
             tipoClase = Clases.ECONOMIC;
         }
         reserva.setClaseVuelo(tipoClase);
@@ -567,10 +567,10 @@ public class Datos {
         reserva.setFechaReserva(fechaReserva);
 
         System.out.println("6. Datos del equipaje (mano/facturado/ambos): ");
-        String tipoEquipajeStr = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
+        String tipoEquipajeStr = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayisculas
         Equipaje tipoEquipaje;
 
-        // Validar la opción ingresada y asignar el tipo de equipaje correspondiente
+        // Validar la opcion ingresada y asignar el tipo de equipaje correspondiente
         if (tipoEquipajeStr.equals("MANO")) {
             tipoEquipaje = Equipaje.MANO;
         } else if (tipoEquipajeStr.equals("FACTURADO")) {
@@ -578,7 +578,7 @@ public class Datos {
         } else if (tipoEquipajeStr.equals("AMBOS")) {
             tipoEquipaje = Equipaje.AMBOS;
         } else {
-            System.out.println("La opción ingresada no es válida. Se asignará el tipo de equipaje 'MANO' por defecto.");
+            System.out.println("La opcion ingresada no es valida. Se asignara el tipo de equipaje 'MANO' por defecto.");
             tipoEquipaje = Equipaje.MANO;
         }
         reserva.setEquipaje(tipoEquipaje);
@@ -588,16 +588,16 @@ public class Datos {
         reserva.setMascota(mascota);
 
         System.out.println("8. Estado de la reserva (confirmado/cancelado): ");
-        String estadoReservaStr = sc.nextLine().toUpperCase(); // Leer la opción y convertirla a mayúsculas
+        String estadoReservaStr = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayisculas
         Estado estadoReserva;
 
-        // Validar la opción ingresada y asignar el estado correspondiente
+        // Validar la opcion ingresada y asignar el estado correspondiente
         if (estadoReservaStr.equals("CONFIRMADO")) {
             estadoReserva = Estado.CONFIRMADO;
         } else if (estadoReservaStr.equals("CANCELADO")) {
             estadoReserva = Estado.CANCELADO;
         } else {
-            System.out.println("La opción ingresada no es válida. Se asignará el estado 'CONFIRMADO' por defecto. \n");
+            System.out.println("La opcion ingresada no es valida. Se asignara el estado 'CONFIRMADO' por defecto. \n");
             estadoReserva = Estado.CONFIRMADO;
         }
 
@@ -606,7 +606,7 @@ public class Datos {
     }
 
     /**
-     * Este método devuelve un objeto de tipo Pasajero dado un ID
+     * Este metodo devuelve un objeto de tipo Pasajero dado un ID
      *
      * @param id
      * @return
@@ -646,7 +646,7 @@ public class Datos {
             System.out.println("Vuelo: " + reserva.getVuelo().getId());
             System.out.println("Equipaje: " + reserva.getEquipaje().name());
             System.out.println("Estado: " + reserva.getEstado().name());
-            System.out.println("Mascota: " + (reserva.isMascota() ? "Sí" : "No"));
+            System.out.println("Mascota: " + (reserva.isMascota() ? "Si" : "No"));
             System.out.println("Clase de reserva: " + reserva.getClaseVuelo().getClase() + "\n");
 
         }
