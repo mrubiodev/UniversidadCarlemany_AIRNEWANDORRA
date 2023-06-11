@@ -7,7 +7,8 @@ import java.util.Scanner;
  * @author Mario Rubio Avila
  * @since  2019
  * Esta libreria se conformo para ayudar a la creacion de tareas en el curso de DAM.
- * @version V20.1 ->Inicio de curso 19-20 nueva funcionalidades.Se agrega un formateador de string.
+ * @version V20.2 ->Mejoras tipograficas. En el menu y en pausa
+ * version V20.1  ->Inicio de curso 19-20 nueva funcionalidades.Se agrega un formateador de string.
  *                  formatoString(int maxChar,String cadena);
  *                  formatoString (int maxChar,String cadena,Boolean completar)
  *                  generateSeparador (int maxChar) ->Maximo 50 caracter
@@ -128,7 +129,7 @@ public class ToolsAndMenu {
         Scanner scanner=new Scanner(System.in);
         int op1 = -1;
         while(op1 < 0 || op1 >= MENUOPCIONS.length){//Comprueba que es una opcion correcta
-            op1 = getIntFromKB("la opcion deseada");
+            op1 = getIntFromKB("la opcion deseada entre el 0 y el " + (MENUOPCIONS.length -1));
         }
         return op1;
     }
@@ -319,7 +320,7 @@ public class ToolsAndMenu {
      */
     static public void pausa(){
         Scanner scanner=new Scanner(System.in);
-        System.out.print(ColorConsole.PURPLE + "Presione cualquier tecla para continuar." + ColorConsole.RESET);
+        System.out.print(ColorConsole.PURPLE + "Presione la tecla enter para continuar." + ColorConsole.RESET);
         scanner.nextLine();
     }
     

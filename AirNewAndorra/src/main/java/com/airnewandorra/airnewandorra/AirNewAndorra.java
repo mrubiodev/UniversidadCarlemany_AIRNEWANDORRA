@@ -45,7 +45,6 @@ public class AirNewAndorra {
             switch (option) {
                 case 0://SALIDA APP
                     System.out.println("Volviendo al menu principal \n");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 case 1:
                     datosPrograma.crearPasajero(datosPrograma.getListaPasajeros());
@@ -100,8 +99,7 @@ public class AirNewAndorra {
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal \n");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    System.out.println("Volviendo al menu anterior \n");
                     return;//Me voy de la funcion
                 case 1:
                     datosPrograma.modificarPasajero(pasajeroSeleccionado);
@@ -133,24 +131,19 @@ public class AirNewAndorra {
             switch (option) {
                 case 0://SALIDA APP
                     System.out.println("Volviendo al menu principal \n");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 //break;
                 case 1:
                     menuVuelos();
-                    ToolsAndMenu.pausa();
                     break;
                 case 2:
                     menuClases();
-                    ToolsAndMenu.pausa();
                     break;
                 case 3:
                     menuOrigenes();
-                    ToolsAndMenu.pausa();
                     break;
                 case 4:
                     menuDestinos();
-                    ToolsAndMenu.pausa();
                     break;
 
             }
@@ -165,8 +158,7 @@ public class AirNewAndorra {
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal \n");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    System.out.println("Volviendo al menu anterior \n");
                     return;//Me voy de la funcion
                 case 1:
                     datosPrograma.MostrarVuelos(datosPrograma.getlistaVuelos());
@@ -197,7 +189,7 @@ public class AirNewAndorra {
             if (option >= 0 && option <= listaStrVuelosActualizada.length - 1) {
                 switch (option) {
                     case 0:
-                        System.out.println("Volviendo al menú principal \n");
+                        System.out.println("Volviendo al menú anterior \n");
                         return;
                     default:
                         Vuelo vueloSeleccionado = datosPrograma.returnVueloObjById(option);
@@ -219,8 +211,7 @@ public class AirNewAndorra {
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal \n");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    System.out.println("Volviendo al menu anterior \n");
                     return;//Me voy de la funcion
                 //break;
                 case 1:
@@ -240,8 +231,7 @@ public class AirNewAndorra {
             int option = menu(menuOpciones);
             switch (option) {
                 case 0://SALIDA APP
-                    System.out.println("Volviendo al menu principal \n");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
+                    System.out.println("Volviendo al menu anterior \n");
                     return;//Me voy de la funcion
                 //break;
                 case 1:
@@ -261,7 +251,6 @@ public class AirNewAndorra {
             switch (option) {
                 case 0://SALIDA APP
                     System.out.println("Volviendo al menu principal \n");
-                    //ToolsAndMenu.sleepThread(0);//Pausa por tiempo
                     return;//Me voy de la funcion
                 //break;
                 case 1:
