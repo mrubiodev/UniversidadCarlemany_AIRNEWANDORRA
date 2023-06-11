@@ -153,8 +153,8 @@ public class Datos {
             System.out.println("Duracion: " + vuelo.getDuracion() + " minutos");
             System.out.println("Fecha de vuelo: " + vuelo.getFechaVuelo());
             System.out.println("Tipo de avion: " + vuelo.getTipoAvion());
-            System.out.println("Nimero maximo de pasajeros: " + vuelo.getNumMaxPasajeros());
-            System.out.println("Nimero minimo de pasajeros: " + vuelo.getNumMinPasajeros() + "\n");
+            System.out.println("Numero maximo de pasajeros: " + vuelo.getNumMaxPasajeros());
+            System.out.println("Numero minimo de pasajeros: " + vuelo.getNumMinPasajeros() + "\n");
 
         }
     }
@@ -203,10 +203,10 @@ public class Datos {
             int tipoAvion = sc.nextInt();
             TipoAvion tipo = TipoAvion.values()[tipoAvion - 1];
 
-            System.out.println("Nimero maximo de pasajeros: ");
+            System.out.println("Numero maximo de pasajeros: ");
             int numMax = sc.nextInt();
 
-            System.out.println("Nimero minimo de pasajeros: ");
+            System.out.println("Numero minimo de pasajeros: ");
             int numMin = sc.nextInt();
 
             vuelo.setTipoAvion(tipo);
@@ -437,8 +437,8 @@ public class Datos {
         System.out.println("5 Duracion: " + vuelo.getDuracion());
         System.out.println("6 Fecha del vuelo: " + vuelo.getFechaVuelo());
         System.out.println("7 Tipo de avion: " + vuelo.getTipoAvion());
-        System.out.println("8 Nimero maximo de pasajeros: " + vuelo.getNumMaxPasajeros());
-        System.out.println("9 Nimero minimo de pasajeros: " + vuelo.getNumMinPasajeros());
+        System.out.println("8 Numero maximo de pasajeros: " + vuelo.getNumMaxPasajeros());
+        System.out.println("9 Numero minimo de pasajeros: " + vuelo.getNumMinPasajeros());
         System.out.println("10 Salir: \n");
 
         System.out.print("Ingrese una opcion: ");
@@ -540,7 +540,7 @@ public class Datos {
         // Aqui deberias tener la logica para recopilar los datos del vuelo
 
         System.out.println("3. Clase de vuelo: ");
-        String tipoClasevuelo = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayisculas
+        String tipoClasevuelo = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayusculas
         Clases tipoClase;
 
         // Validar la opcion ingresada y asignar el tipo de clase de vuelo correspondiente
@@ -567,7 +567,7 @@ public class Datos {
         reserva.setFechaReserva(fechaReserva);
 
         System.out.println("6. Datos del equipaje (mano/facturado/ambos): ");
-        String tipoEquipajeStr = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayisculas
+        String tipoEquipajeStr = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayusculas
         Equipaje tipoEquipaje;
 
         // Validar la opcion ingresada y asignar el tipo de equipaje correspondiente
@@ -588,7 +588,7 @@ public class Datos {
         reserva.setMascota(mascota);
 
         System.out.println("8. Estado de la reserva (confirmado/cancelado): ");
-        String estadoReservaStr = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayisculas
+        String estadoReservaStr = sc.nextLine().toUpperCase(); // Leer la opcion y convertirla a mayusculas
         Estado estadoReserva;
 
         // Validar la opcion ingresada y asignar el estado correspondiente
