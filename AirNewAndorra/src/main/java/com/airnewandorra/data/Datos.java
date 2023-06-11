@@ -549,13 +549,13 @@ public class Datos {
                 break;
 
             case 8:
-                System.out.print("Ingrese el nuevo nimero maximo de pasajeros del vuelo: ");
+                System.out.print("Ingrese el nuevo numero maximo de pasajeros del vuelo: ");
                 int nuevoNumMaxPasajeros = sc.nextInt();
                 vuelo.setNumMaxPasajeros(nuevoNumMaxPasajeros);
                 break;
 
             case 9:
-                System.out.print("Ingrese el nuevo nimero minimo de pasajeros del vuelo: ");
+                System.out.print("Ingrese el nuevo numero minimo de pasajeros del vuelo: ");
                 int nuevoNumMinPasajeros = sc.nextInt();
                 vuelo.setNumMinPasajeros(nuevoNumMinPasajeros);
                 break;
