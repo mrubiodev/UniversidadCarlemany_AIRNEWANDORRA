@@ -320,7 +320,7 @@ public class ToolsAndMenu {
      */
     static public void pausa(){
         Scanner scanner=new Scanner(System.in);
-        System.out.print(ColorConsole.PURPLE + "Presione cualquier tecla para continuar." + ColorConsole.RESET);
+        System.out.print(ColorConsole.PURPLE + "Presione la tecla enter para continuar." + ColorConsole.RESET);
         scanner.nextLine();
     }
     
