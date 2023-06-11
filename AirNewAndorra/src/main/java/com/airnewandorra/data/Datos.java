@@ -172,6 +172,12 @@ public class Datos {
             System.out.println("Selecciona un aeropuesto de origen: ");
             int opcionOrigen = sc.nextInt();
 
+            while (opcionOrigen == 0 || opcionOrigen > listaOrigenes.size() - 1) {
+                System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaOrigenes.size()));
+                System.out.println("Selecciona un aeropuesto de origen: ");
+                opcionOrigen = sc.nextInt();
+            }
+
             Origen origen = listaOrigenes.get(opcionOrigen - 1);
 
             System.out.println("Destinos disponibles: ");
@@ -179,6 +185,12 @@ public class Datos {
 
             System.out.println("Selecciona un aeropuesto de destino: ");
             int opcionDestino = sc.nextInt();
+
+            while (opcionDestino == 0 || opcionDestino > listaDestinos.size() - 1) {
+                System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaDestinos.size()));
+                System.out.println("Selecciona un aeropuerto de destino: ");
+                opcionDestino = sc.nextInt();
+            }
 
             sc.nextLine(); //limpiamos
 
@@ -335,8 +347,8 @@ public class Datos {
                 System.out.println("9. Fecha de nacimiento: ");
                 fechaNacimiento = sc.nextLine();
             }
-            
-             if (!Utils.isDate(fechaNacimiento)) {
+
+            if (!Utils.isDate(fechaNacimiento)) {
                 System.out.println("Formato icorrecto en la fecha de nacimiento (dd/MM/yyyy).");
                 contactoEmergencia = ""; // Reiniciar el valor para volver a solicitarlo
                 continue;
@@ -502,21 +514,39 @@ public class Datos {
         sc.nextLine();
 
         switch (opcion) {
-            /*
+
             case 1:
                 System.out.print("Ingrese el nuevo origen del vuelo: ");
-                String nuevoOrigenStr = sc.nextLine();
-                Origen nuevoOrigen = Origen.valueOf(nuevoOrigenStr);
-                vuelo.setAeropuertoOrigen(nuevoOrigen);
+                System.out.println("Origenes disponibles: ");
+                MostrarOrigenes();
+                int opcionOrigen = sc.nextInt();
+
+                while (opcionOrigen == 0 || opcionOrigen > listaOrigenes.size() - 1) {
+                    System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaOrigenes.size()));
+                    System.out.println("Selecciona un aeropuerto de origen: ");
+                    opcionOrigen = sc.nextInt();
+                }
+
+                Origen origen = listaOrigenes.get(opcionOrigen - 1);
+                vuelo.setAeropuertoOrigen(origen);
                 break;
 
             case 2:
                 System.out.print("Ingrese el nuevo destino del vuelo: ");
-                String nuevoDestinoStr = sc.nextLine();
-                Destino nuevoDestino = Destino.valueOf(nuevoDestinoStr);
-                vuelo.setAeropuertoDestino(nuevoDestino);
+                System.out.println("Destinos disponibles: ");
+                MostrarDestinos();
+                int opcionDestino = sc.nextInt();
+
+                while (opcionDestino == 0 || opcionDestino > listaDestinos.size() - 1) {
+                    System.out.println("El valor seleccionado no es válido. Debe estar entre 1 y " + (listaDestinos.size()));
+                    System.out.println("Selecciona un aeropuerto de destino: ");
+                    opcionDestino = sc.nextInt();
+                }
+
+                Destino destino = listaDestinos.get(opcionDestino - 1);
+                vuelo.setAeropuertoDestino(destino);
                 break;
-             */
+
             case 3:
                 System.out.print("Ingrese la nueva hora de salida del vuelo: ");
                 String nuevaHoraSalida = sc.nextLine();
@@ -549,13 +579,13 @@ public class Datos {
                 break;
 
             case 8:
-                System.out.print("Ingrese el nuevo nimero maximo de pasajeros del vuelo: ");
+                System.out.print("Ingrese el nuevo numero maximo de pasajeros del vuelo: ");
                 int nuevoNumMaxPasajeros = sc.nextInt();
                 vuelo.setNumMaxPasajeros(nuevoNumMaxPasajeros);
                 break;
 
             case 9:
-                System.out.print("Ingrese el nuevo nimero minimo de pasajeros del vuelo: ");
+                System.out.print("Ingrese el nuevo numero minimo de pasajeros del vuelo: ");
                 int nuevoNumMinPasajeros = sc.nextInt();
                 vuelo.setNumMinPasajeros(nuevoNumMinPasajeros);
                 break;
@@ -568,7 +598,7 @@ public class Datos {
                 System.out.print("Opcion no valida. Intentelo de nuevo \n");
 
         }
-        System.out.println("Datos del pasajero actualizados con exito. \n");
+        System.out.println("Datos del vuelo actualizado con exito. \n");
     }
 
     public String[] getListaVuelos() {
