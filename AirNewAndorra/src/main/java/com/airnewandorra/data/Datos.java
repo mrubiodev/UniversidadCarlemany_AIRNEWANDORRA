@@ -83,6 +83,9 @@ public class Datos {
      * formato "ID - Nombre del destino"
      */
     public void MostrarDestinos() {
+        if (listaDestinos.isEmpty()) {
+            System.out.println("No hay destinos disponibles.");
+        }
         for (Destino destino : listaDestinos) {
             System.out.println("\t" + destino.getId() + " - " + destino.getNombreDestino());
         }
@@ -97,6 +100,9 @@ public class Datos {
     }
 
     public void MostrarOrigenes() {
+        if (listaOrigenes.isEmpty()) {
+            System.out.println("No hay origenes disponibles.");
+        }
         for (Origen origen : listaOrigenes) {
             System.out.println("\t" + origen.getId() + " - " + origen.getNombreOrigen());
         }
@@ -107,6 +113,9 @@ public class Datos {
      * formato "ID - Nombre de la clase"
      */
     public void MostrarClases() {
+        if (listaClases.isEmpty()) {
+            System.out.println("No hay clases disponibles.");
+        }
         for (ClaseVuelo clase : listaClases) {
             System.out.println(clase.getId() + " - " + clase.getNombre());
         }
@@ -144,6 +153,9 @@ public class Datos {
      */
     public void MostrarVuelos(List<Vuelo> listaVuelos) {
         System.out.println("Datos actuales de los vuelos: \n");
+        if (listaVuelos.isEmpty()) {
+            System.out.println("No hay vuelos disponibles.");
+        }
         for (Vuelo vuelo : listaVuelos) {
             System.out.println("ID: " + vuelo.getId());
             System.out.println("Aeropuerto de origen: " + vuelo.getAeropuertoOrigen());
@@ -155,7 +167,6 @@ public class Datos {
             System.out.println("Tipo de avion: " + vuelo.getTipoAvion());
             System.out.println("Numero maximo de pasajeros: " + vuelo.getNumMaxPasajeros());
             System.out.println("Numero minimo de pasajeros: " + vuelo.getNumMinPasajeros() + "\n");
-
         }
     }
 
