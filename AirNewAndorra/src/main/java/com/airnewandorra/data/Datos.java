@@ -247,6 +247,7 @@ public class Datos {
 
             System.out.println("Numero minimo de pasajeros: ");
             int numMin = sc.nextInt();
+            sc.nextLine();
 
             vuelo.setTipoAvion(tipo);
             vuelo.setFechaVuelo(fechaVuelo);
@@ -274,9 +275,21 @@ public class Datos {
             } else {
                 datosIncorrectos = false;  // Todos los datos son validos, salimos del bucle
             }
-
+                      
             System.out.println("Vuelo creado correctamente. \n");
             listaVuelos.add(vuelo);
+            
+            
+            
+            System.out.println("Pulsa 'Sí' para crear otro vuelo");
+            
+            String nuevoVuelo = sc.nextLine();
+            
+            if (!(nuevoVuelo.equalsIgnoreCase("SI")))
+            {
+                break;
+            } else datosIncorrectos=true ;
+            
         } while (datosIncorrectos);
     }
 
