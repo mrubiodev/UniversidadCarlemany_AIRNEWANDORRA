@@ -166,7 +166,6 @@ public class AirNewAndorra {
                     break;
                 case 2:
                     datosPrograma.nuevoVuelo();
-                    ToolsAndMenu.pausa();
                     break;
                 case 3:
                     seleccionarVuelo();
